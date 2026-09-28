@@ -1,0 +1,27 @@
+{
+  "name": "@client-demos/core",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": {
+    "gsap": "^3.12.7",
+    "lenis": "^1.1.18",
+    "motion": "^12.0.0",
+    "three": "^0.172.0",
+    "@react-three/fiber": "^9.1.2",
+    "@react-three/drei": "^10.0.0",
+    "lucide-react": "^0.469.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.172.0",
+    "typescript": "^5.7.0"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "next": ">=14"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "client-demos",
+  "private": true,
+  "scripts": {
+    "dev:demo0": "pnpm --filter Demo0-template dev",
+    "dev:demo1": "pnpm --filter Demo1 dev",
+    "dev:demo2": "pnpm --filter Demo2 dev",
+    "dev:demo3": "pnpm --filter Demo3 dev",
+    "dev:demo4": "pnpm --filter Demo4 dev",
+    "dev:demo5": "pnpm --filter Demo5 dev",
+    "dev:demo6": "pnpm --filter Demo6 dev",
+    "dev:demo7": "pnpm --filter Demo7 dev",
+    "dev:demo8": "pnpm --filter Demo8 dev",
+    "dev:demo9": "pnpm --filter Demo9 dev",
+    "dev:demo10": "pnpm --filter Demo10 dev",
+    "dev:demo11": "pnpm --filter Demo11 dev",
+    "dev:demo12": "pnpm --filter Demo12 dev",
+    "build:all": "pnpm -r run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

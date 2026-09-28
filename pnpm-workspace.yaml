@@ -1,0 +1,6 @@
+packages:
+  - "packages/*"
+  - "Demo*"
+  - "color-lab-hair-salon"
+minimumReleaseAgeExclude:
+  - '@img/sharp-linux-arm@0.35.5'
