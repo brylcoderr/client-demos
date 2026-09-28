@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import "@client-demos/core/src/theme/tokens.css";
+
+/* ─── Base reset ──────────────────────────────────────────── */
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--bg);
+}
+
+/* ─── Tailwind v4 source detection ────────────────────────── */
+@source "../node_modules/@client-demos/core/src/**/*.{ts,tsx}";
