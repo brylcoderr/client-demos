@@ -1,0 +1,56 @@
+[
+  {
+    "file": "hero-courthouse.jpg",
+    "query": "courthouse columns architecture",
+    "must": ["columns"],
+    "avoid": ["parliament", "crowd", "protest"],
+    "minWidth": 1600
+  },
+  {
+    "file": "office-lobby.jpg",
+    "query": "law office interior bookshelves",
+    "must": ["office", "library"],
+    "minWidth": 1600
+  },
+  {
+    "file": "attorney-1.jpg",
+    "query": "lawyer portrait suit office",
+    "must": ["suit"],
+    "avoid": ["cartoon"],
+    "minWidth": 1000
+  },
+  {
+    "file": "attorney-2.jpg",
+    "query": "lawyer portrait suit office",
+    "must": ["suit"],
+    "avoid": ["cartoon"],
+    "minWidth": 1000
+  },
+  {
+    "file": "attorney-3.jpg",
+    "query": "lawyer portrait suit office",
+    "must": ["suit"],
+    "avoid": ["cartoon"],
+    "minWidth": 1000
+  },
+  {
+    "file": "handshake-client.jpg",
+    "query": "lawyer client consultation",
+    "must": ["meeting"],
+    "minWidth": 1600
+  },
+  {
+    "file": "scales.jpg",
+    "query": "scales of justice",
+    "must": ["scales"],
+    "avoid": ["cartoon", "clipart"],
+    "minWidth": 1600
+  },
+  {
+    "file": "elder-hands.jpg",
+    "query": "elderly couple hands documents",
+    "must": ["hands", "elderly"],
+    "avoid": ["hospital"],
+    "minWidth": 1600
+  }
+]

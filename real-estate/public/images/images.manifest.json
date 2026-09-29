@@ -1,0 +1,15 @@
+[
+  { "file": "hero.jpg", "query": "luxury home exterior twilight | house", "orientation": "landscape", "minWidth": 1600, "must": ["house", "twilight"], "avoid": ["floor plan", "sign", "construction"] },
+  { "file": "listing-1.jpg", "query": "modern house exterior", "orientation": "landscape", "minWidth": 1600, "must": ["house"], "avoid": ["floor plan", "sign", "construction"] },
+  { "file": "listing-2.jpg", "query": "condo living room", "orientation": "landscape", "minWidth": 1600, "must": ["room"], "avoid": ["floor plan", "sign", "construction"] },
+  { "file": "listing-3.jpg", "query": "kitchen island", "orientation": "landscape", "minWidth": 1600, "must": ["kitchen"], "avoid": ["floor plan", "sign", "construction"] },
+  { "file": "listing-4.jpg", "query": "townhouse street", "orientation": "landscape", "minWidth": 1600, "must": ["street"], "avoid": ["floor plan", "sign", "construction"] },
+  { "file": "listing-5.jpg", "query": "backyard pool house", "orientation": "landscape", "minWidth": 1600, "must": ["pool"], "avoid": ["floor plan", "sign", "construction"] },
+  { "file": "listing-6.jpg", "query": "bedroom staging", "orientation": "landscape", "minWidth": 1600, "must": ["bedroom"], "avoid": ["floor plan", "sign", "construction"] },
+  { "file": "agent-1.jpg", "query": "real estate agent portrait | portrait", "orientation": "portrait", "minWidth": 1000, "must": ["portrait"], "avoid": ["sign closeup", "text"] },
+  { "file": "agent-2.jpg", "query": "real estate agent portrait | portrait", "orientation": "portrait", "minWidth": 1000, "must": ["portrait"], "avoid": ["sign closeup", "text"] },
+  { "file": "hood-1.jpg", "query": "city neighborhood street", "orientation": "landscape", "minWidth": 1600, "must": ["street"], "avoid": ["floor plan", "sign", "construction"] },
+  { "file": "hood-2.jpg", "query": "city park", "orientation": "landscape", "minWidth": 1600, "must": ["park"], "avoid": ["floor plan", "sign", "construction"] },
+  { "file": "hood-3.jpg", "query": "waterfront", "orientation": "landscape", "minWidth": 1600, "must": ["waterfront"], "avoid": ["floor plan", "sign", "construction"] },
+  { "file": "hood-4.jpg", "query": "main street shops", "orientation": "landscape", "minWidth": 1600, "must": ["shops"], "avoid": ["floor plan", "sign", "construction"] }
+]

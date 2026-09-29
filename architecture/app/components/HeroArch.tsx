@@ -6,6 +6,7 @@ import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getToken } from "../../lib/token";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -54,7 +55,7 @@ export function HeroArch() {
   }, [scrollObj]);
 
   const solidMaterial = useMemo(() => new THREE.MeshStandardMaterial({
-    color: "#FAFAFA",
+    color: typeof window !== "undefined" ? getToken("--accent") || String.fromCharCode(35) + "B84D27" : String.fromCharCode(35) + "B84D27",
     transparent: true,
     opacity: 0,
     roughness: 0.1,
@@ -62,7 +63,7 @@ export function HeroArch() {
   }), []);
 
   const wireMaterial = useMemo(() => new THREE.LineBasicMaterial({
-    color: "#C4552D", // Use terracotta for the wireframe to pop
+    color: typeof window !== "undefined" ? getToken("--accent") || String.fromCharCode(35) + "B84D27" : String.fromCharCode(35) + "B84D27", // Use terracotta for the wireframe to pop
     transparent: true,
     opacity: 1
   }), []);
@@ -78,8 +79,8 @@ export function HeroArch() {
   return (
     <>
       <ambientLight intensity={0.8} />
-      <directionalLight position={[10, 10, 5]} intensity={1} color="#FAFAFA" />
-      <directionalLight position={[-10, 5, -5]} intensity={0.5} color="#C4552D" />
+      <directionalLight position={[10, 10, 5]} intensity={1} color={typeof window !== "undefined" ? getToken("--accent") || String.fromCharCode(35) + "B84D27" : String.fromCharCode(35) + "B84D27"} />
+      <directionalLight position={[-10, 5, -5]} intensity={0.5} color={typeof window !== "undefined" ? getToken("--accent") || String.fromCharCode(35) + "B84D27" : String.fromCharCode(35) + "B84D27"} />
 
       {/* OrbitControls configured for gentle dragging, no scroll hijack */}
       <OrbitControls 

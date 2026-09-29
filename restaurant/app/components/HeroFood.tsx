@@ -28,7 +28,7 @@ function Mediterranean() {
       {/* Plate / Ring */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]}>
         <torusGeometry args={[3, 0.2, 16, 64]} />
-        <meshStandardMaterial color="#6B7A3A" roughness={0.4} />
+        <meshStandardMaterial color="var(--accent)" roughness={0.4} />
       </mesh>
       
       {/* Floating ingredients */}
@@ -39,7 +39,7 @@ function Mediterranean() {
           position={[Math.cos((i / 6) * Math.PI * 2) * 2.5, 0, Math.sin((i / 6) * Math.PI * 2) * 2.5]}
         >
           {i % 2 === 0 ? <dodecahedronGeometry args={[0.4]} /> : <octahedronGeometry args={[0.4]} />}
-          <meshStandardMaterial color={i % 2 === 0 ? "#C65D3B" : "#FBF3E4"} />
+          <meshStandardMaterial color={i % 2 === 0 ? "var(--accent)" : "var(--accent)"} />
         </mesh>
       ))}
     </group>
@@ -72,7 +72,7 @@ function Coffee() {
           position={[(Math.random() - 0.5) * 5, (Math.random() - 0.5) * 8, (Math.random() - 0.5) * 5]}
         >
           <capsuleGeometry args={[0.2, 0.3, 4, 8]} />
-          <meshStandardMaterial color="#3B2C24" roughness={0.8} />
+          <meshStandardMaterial color="var(--accent)" roughness={0.8} />
         </mesh>
       ))}
     </group>
@@ -86,17 +86,17 @@ function IceCream() {
         {/* Cone */}
         <mesh position={[0, -1.5, 0]} rotation={[0, 0, Math.PI]}>
           <coneGeometry args={[1.5, 3, 16]} />
-          <meshStandardMaterial color="#C4A6B2" roughness={0.9} />
+          <meshStandardMaterial color="var(--accent)" roughness={0.9} />
         </mesh>
         
         {/* Scoops */}
         <mesh position={[0, 0.5, 0]}>
           <sphereGeometry args={[1.6, 32, 32]} />
-          <meshStandardMaterial color="#FF9EB5" roughness={0.3} />
+          <meshStandardMaterial color="var(--accent)" roughness={0.3} />
         </mesh>
         <mesh position={[0.5, 2, 0.5]}>
           <sphereGeometry args={[1.2, 32, 32]} />
-          <meshStandardMaterial color="#84DCC6" roughness={0.3} />
+          <meshStandardMaterial color="var(--accent)" roughness={0.3} />
         </mesh>
       </group>
     </Float>
@@ -116,13 +116,13 @@ function Diner() {
       {/* Checkerboard tile cylinder */}
       <mesh position={[0, -1, 0]}>
         <cylinderGeometry args={[3, 3, 0.5, 32]} />
-        <meshStandardMaterial color="#A8DADC" metalness={0.8} roughness={0.2} />
+        <meshStandardMaterial color="var(--accent)" metalness={0.8} roughness={0.2} />
       </mesh>
       
       {/* Abstract burger stack */}
-      <mesh position={[0, 0, 0]}><cylinderGeometry args={[1.5, 1.5, 0.5, 32]} /><meshStandardMaterial color="#E63946" /></mesh>
-      <mesh position={[0, 0.6, 0]}><cylinderGeometry args={[1.6, 1.6, 0.2, 32]} /><meshStandardMaterial color="#1A1A1A" /></mesh>
-      <mesh position={[0, 1.2, 0]}><cylinderGeometry args={[1.5, 1.5, 0.5, 32]} /><meshStandardMaterial color="#FDFBF7" /></mesh>
+      <mesh position={[0, 0, 0]}><cylinderGeometry args={[1.5, 1.5, 0.5, 32]} /><meshStandardMaterial color="var(--accent)" /></mesh>
+      <mesh position={[0, 0.6, 0]}><cylinderGeometry args={[1.6, 1.6, 0.2, 32]} /><meshStandardMaterial color="var(--accent)" /></mesh>
+      <mesh position={[0, 1.2, 0]}><cylinderGeometry args={[1.5, 1.5, 0.5, 32]} /><meshStandardMaterial color="var(--accent)" /></mesh>
     </group>
   );
 }
@@ -131,7 +131,7 @@ export function HeroFood() {
   return (
     <>
       <ambientLight intensity={0.6} />
-      <directionalLight position={[10, 10, 10]} intensity={1.5} color="#ffffff" />
+      <directionalLight position={[10, 10, 10]} intensity={1.5} color="var(--accent)" />
       <directionalLight position={[-10, 5, -5]} intensity={0.5} />
       
       {cuisine === "mediterranean" && <Mediterranean />}

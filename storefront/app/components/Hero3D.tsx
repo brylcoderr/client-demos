@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { 
   MeshTransmissionMaterial, 
@@ -10,8 +10,9 @@ import {
   Lightformer 
 } from "@react-three/drei";
 import * as THREE from "three";
-import { config, StoreType } from "../../demo.config";
+import { config } from "../../demo.config";
 import { useDeviceTier } from "@client-demos/core";
+import { getToken } from "../../lib/token";
 
 // ─── Jewelry Gem ──────────────────────────────────────────────
 function Gem() {
@@ -38,6 +39,8 @@ function Gem() {
 // ─── Holographic Card ────────────────────────────────────────
 function HoloCard() {
   const mesh = useRef<THREE.Mesh>(null);
+  const [accent, setAccent] = useState("#000");
+  useEffect(() => { setAccent(getToken("--accent")); }, []);
   
   useFrame((state) => {
     if (!mesh.current) return;
@@ -57,7 +60,7 @@ function HoloCard() {
           iridescence={1}
           iridescenceIOR={1.5}
           iridescenceThicknessRange={[100, 400]}
-          color="#222"
+          color={accent}
           envMapIntensity={3}
         />
       </mesh>
@@ -67,12 +70,14 @@ function HoloCard() {
 
 // ─── Fashion Sneaker Shape ───────────────────────────────────
 function SneakerShape() {
+  const [accent, setAccent] = useState("#000");
+  useEffect(() => { setAccent(getToken("--accent")); }, []);
   return (
     <Float floatIntensity={3} rotationIntensity={2} speed={3}>
       <mesh>
         <capsuleGeometry args={[1, 2, 4, 16]} />
         <meshPhysicalMaterial
-          color={config.theme.accent}
+          color={accent}
           roughness={0.1}
           metalness={0.5}
           clearcoat={0.8}
@@ -85,12 +90,14 @@ function SneakerShape() {
 
 // ─── General / Fallback Shape ───────────────────────────────
 function DefaultShape() {
+  const [accent, setAccent] = useState("#000");
+  useEffect(() => { setAccent(getToken("--accent")); }, []);
   return (
     <Float floatIntensity={2} rotationIntensity={1.5} speed={2}>
       <mesh>
         <torusKnotGeometry args={[1.5, 0.4, 128, 32]} />
         <meshPhysicalMaterial
-          color={config.theme.accent}
+          color={accent}
           roughness={0.3}
           metalness={0.2}
         />
@@ -106,8 +113,8 @@ export function Hero3D() {
     // Low tier: static gradient with SVG product fallback
     return (
       <div className="absolute inset-0 z-0 flex items-center justify-center opacity-30" 
-           style={{ background: `radial-gradient(circle at center, ${config.theme.accent}22 0%, transparent 70%)` }}>
-        <div className="w-64 h-64 border-4 border-dashed rounded-full animate-spin-slow opacity-20" style={{ borderColor: config.theme.accent }} />
+           style={{ background: `radial-gradient(circle at center, var(--accent) 0%, transparent 70%)` }}>
+        <div className="w-64 h-64 border-4 border-dashed rounded-full animate-spin-slow opacity-20" style={{ borderColor: "var(--accent)" }} />
       </div>
     );
   }

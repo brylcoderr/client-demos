@@ -1,0 +1,6 @@
+[
+  { "file": "team-1.jpg", "query": "creative team designer portrait studio dark", "orientation": "portrait", "minWidth": 1000, "must": ["portrait"], "avoid": ["crowd"] },
+  { "file": "team-2.jpg", "query": "creative team developer portrait studio dark", "orientation": "portrait", "minWidth": 1000, "must": ["portrait"], "avoid": ["crowd"] },
+  { "file": "team-3.jpg", "query": "creative director portrait studio dark", "orientation": "portrait", "minWidth": 1000, "must": ["portrait"], "avoid": ["crowd"] },
+  { "file": "team-4.jpg", "query": "creative agency team portrait studio dark", "orientation": "portrait", "minWidth": 1000, "must": ["portrait"], "avoid": ["crowd"] }
+]

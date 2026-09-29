@@ -31,13 +31,13 @@ export function Tabs({ tabs, className }: { tabs: Tab[]; className?: string }) {
   return (
     <div className={`w-full ${className ?? ""}`}>
       {/* Tab bar */}
-      <div className="flex gap-6 md:gap-10 border-b border-[var(--muted)]/20 mb-8 overflow-x-auto">
+      <div className="flex gap-6 md:gap-10 border-b border-[var(--fg-muted)]/20 mb-8 overflow-x-auto">
         {tabs.map((tab, i) => (
           <button
             key={i}
             onClick={() => setActive(i)}
             className={`relative pb-3 text-sm md:text-base uppercase tracking-widest min-h-[44px] transition-colors duration-300 ${
-              active === i ? "text-[var(--accent)]" : "text-[var(--muted)]"
+              active === i ? "text-[var(--fg)]" : "text-[var(--fg-muted)]"
             }`}
           >
             {tab.label}

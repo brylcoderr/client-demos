@@ -1,7 +1,20 @@
 import type { Metadata } from "next";
+import { Nunito, Lora } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { config } from "../demo.config";
+import { demoConfig as config } from "../demo.config";
+
+const fontBody = Nunito({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const fontDisplay = Lora({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: config.brand.name,
@@ -10,21 +23,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className="bg-[var(--bg)] text-[var(--fg)] antialiased"
-        style={{
-          // Inject theme variables from config so they're available before JS hydrates
-          ["--bg" as string]: config.theme.bg,
-          ["--fg" as string]: config.theme.fg,
-          ["--muted" as string]: config.theme.muted,
-          ["--accent" as string]: config.theme.accent,
-          ["--accent-2" as string]: config.theme.accent2,
-          ["--radius" as string]: config.theme.radius,
-          ["--font-display" as string]: config.theme.fontDisplay,
-          ["--font-body" as string]: config.theme.fontBody,
-        }}
-      >
+    <html lang="en" className={`${fontBody.variable} ${fontDisplay.variable}`}>
+      <body className="antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>

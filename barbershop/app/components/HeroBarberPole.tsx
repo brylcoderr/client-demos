@@ -4,6 +4,7 @@ import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Float, Environment } from "@react-three/drei";
 import * as THREE from "three";
+import { getToken } from "../../lib/token";
 
 const vertexShader = `
 varying vec2 vUv;
@@ -15,6 +16,9 @@ void main() {
 
 const fragmentShader = `
 uniform float time;
+uniform vec3 colorRed;
+uniform vec3 colorWhite;
+uniform vec3 colorBlue;
 varying vec2 vUv;
 
 void main() {
@@ -24,12 +28,12 @@ void main() {
   // Sine wave to generate bands
   float stripe = sin(angle);
   
-  vec3 color = vec3(1.0, 1.0, 1.0); // white
+  vec3 color = colorWhite;
   
   if (stripe > 0.33) {
-    color = vec3(0.8, 0.1, 0.1); // red
+    color = colorRed;
   } else if (stripe < -0.33) {
-    color = vec3(0.1, 0.2, 0.8); // blue
+    color = colorBlue;
   }
   
   // Add some simple shading
@@ -40,7 +44,7 @@ void main() {
 `;
 
 function HairClippings() {
-  const count = 100;
+  const count = 60; // 60 particles mobile per spec
   const meshRef = useRef<THREE.InstancedMesh>(null);
   
   const dummy = useMemo(() => new THREE.Object3D(), []);
@@ -59,11 +63,12 @@ function HairClippings() {
     return temp;
   }, [count]);
 
+  const accent = typeof window !== 'undefined' ? getToken('--accent') || 'gold' : 'gold';
+
   useFrame((state, delta) => {
     if (!meshRef.current) return;
     
     particles.forEach((particle, i) => {
-      // Drift downwards and rotate
       particle.y -= particle.speed + delta;
       if (particle.y < -5) particle.y = 5;
       
@@ -80,7 +85,7 @@ function HairClippings() {
   return (
     <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
       <boxGeometry />
-      <meshBasicMaterial color="#1a1a1a" />
+      <meshBasicMaterial color={accent} />
     </instancedMesh>
   );
 }
@@ -89,12 +94,25 @@ export function HeroBarberPole() {
   const materialRef = useRef<THREE.ShaderMaterial>(null);
   const groupRef = useRef<THREE.Group>(null);
 
+  const accent = typeof window !== 'undefined' ? getToken('--accent') || 'gold' : 'gold';
+  
+  // Read pole colors
+  const poleRedStr = typeof window !== 'undefined' ? getToken('--pole-red') || 'darkred' : 'darkred';
+  const poleWhiteStr = typeof window !== 'undefined' ? getToken('--pole-white') || 'white' : 'white';
+  const poleBlueStr = typeof window !== 'undefined' ? getToken('--pole-blue') || 'darkblue' : 'darkblue';
+
+  const uniforms = useMemo(() => ({
+    time: { value: 0 },
+    colorRed: { value: new THREE.Color(poleRedStr) },
+    colorWhite: { value: new THREE.Color(poleWhiteStr) },
+    colorBlue: { value: new THREE.Color(poleBlueStr) }
+  }), [poleRedStr, poleWhiteStr, poleBlueStr]);
+
   useFrame((state) => {
     if (materialRef.current) {
       materialRef.current.uniforms.time.value = state.clock.elapsedTime;
     }
     if (groupRef.current) {
-      // Parallax effect based on pointer
       const targetX = (state.pointer.x * 0.5);
       const targetY = (state.pointer.y * 0.5);
       groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetX, 0.05);
@@ -110,31 +128,25 @@ export function HeroBarberPole() {
       
       <group ref={groupRef}>
         <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-          {/* Main Barber Pole */}
           <group rotation={[0, 0, 0]}>
-            {/* Pole Cap Top */}
             <mesh position={[0, 2.6, 0]}>
               <sphereGeometry args={[0.5, 32, 32]} />
-              <meshStandardMaterial color="#C9A227" metalness={0.8} roughness={0.2} />
+              <meshStandardMaterial color={accent} metalness={0.8} roughness={0.2} />
             </mesh>
             
-            {/* Pole Cylinder */}
             <mesh position={[0, 0, 0]}>
               <cylinderGeometry args={[0.5, 0.5, 5, 32]} />
               <shaderMaterial
                 ref={materialRef}
                 vertexShader={vertexShader}
                 fragmentShader={fragmentShader}
-                uniforms={{
-                  time: { value: 0 }
-                }}
+                uniforms={uniforms}
               />
             </mesh>
             
-            {/* Pole Cap Bottom */}
             <mesh position={[0, -2.6, 0]}>
               <sphereGeometry args={[0.5, 32, 32]} />
-              <meshStandardMaterial color="#C9A227" metalness={0.8} roughness={0.2} />
+              <meshStandardMaterial color={accent} metalness={0.8} roughness={0.2} />
             </mesh>
           </group>
         </Float>

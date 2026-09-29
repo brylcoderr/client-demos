@@ -5,7 +5,8 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment, Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
 import { useScrollVelocity, useDeviceTier } from "@client-demos/core";
-import { config } from "../../demo.config";
+import { demoConfig as config } from "../../demo.config";
+import { getToken } from "../../lib/token";
 
 function WheelModel() {
   const groupRef = useRef<THREE.Group>(null);
@@ -24,39 +25,39 @@ function WheelModel() {
       {/* Tire */}
       <mesh>
         <torusGeometry args={[2.5, 0.8, 32, 100]} />
-        <meshStandardMaterial color="#111111" roughness={0.9} />
+        <meshStandardMaterial color={getToken("--surface-2")} roughness={0.9} />
       </mesh>
       
       {/* Rim Base */}
       <mesh rotation={[0, Math.PI / 2, 0]}>
         <cylinderGeometry args={[2.4, 2.4, 1.2, 64]} />
-        <meshStandardMaterial color="#444444" metalness={0.8} roughness={0.2} />
+        <meshStandardMaterial color={getToken("--accent-2")} metalness={0.8} roughness={0.2} />
       </mesh>
       
       {/* Spokes */}
       {Array.from({ length: 6 }).map((_, i) => (
         <mesh key={i} rotation={[0, 0, (i * Math.PI) / 3]}>
           <boxGeometry args={[4.8, 0.4, 0.8]} />
-          <meshStandardMaterial color={config.theme.fg} metalness={0.9} roughness={0.1} />
+          <meshStandardMaterial color={getToken("--fg")} metalness={0.9} roughness={0.1} />
         </mesh>
       ))}
 
       {/* Center Cap */}
       <mesh position={[0, 0, 0.6]}>
         <cylinderGeometry args={[0.5, 0.5, 0.1, 32]} />
-        <meshStandardMaterial color={config.theme.accent} metalness={0.5} roughness={0.2} />
+        <meshStandardMaterial color={getToken("--accent")} metalness={0.5} roughness={0.2} />
       </mesh>
 
       {/* Brake Disc */}
       <mesh position={[0, 0, -0.4]}>
         <torusGeometry args={[1.5, 0.5, 16, 64]} />
-        <meshStandardMaterial color="#888888" metalness={1} roughness={0.4} />
+        <meshStandardMaterial color={getToken("--accent-2")} metalness={1} roughness={0.4} />
       </mesh>
 
       {/* Caliper */}
       <mesh position={[1.5, 0, -0.4]}>
         <boxGeometry args={[1, 0.6, 1.2]} />
-        <meshStandardMaterial color={config.theme.accent} metalness={0.3} roughness={0.5} />
+        <meshStandardMaterial color={getToken("--accent")} metalness={0.3} roughness={0.5} />
       </mesh>
     </group>
   );
@@ -94,7 +95,7 @@ function SpeedLines() {
 
   return (
     <Points ref={pointsRef} positions={positions} stride={3}>
-      <PointMaterial transparent color={config.theme.accent} size={0.1} sizeAttenuation={true} depthWrite={false} opacity={0.6} />
+      <PointMaterial transparent color={getToken("--accent")} size={0.1} sizeAttenuation={true} depthWrite={false} opacity={0.6} />
     </Points>
   );
 }
@@ -121,8 +122,8 @@ export function Hero3DWheel() {
       <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
         <Environment preset="night" />
         <ambientLight intensity={1.5} />
-        <directionalLight position={[5, 5, 5]} intensity={2} color="#ffffff" />
-        <directionalLight position={[-5, 5, -5]} intensity={5} color={config.theme.accent} />
+        <directionalLight position={[5, 5, 5]} intensity={2} color={getToken("--accent")} />
+        <directionalLight position={[-5, 5, -5]} intensity={5} color={getToken("--accent")} />
         
         <WheelModel />
         <SpeedLines />

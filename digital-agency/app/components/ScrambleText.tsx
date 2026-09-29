@@ -69,7 +69,7 @@ export function ScrambleText({
   }, elRef);
 
   return (
-    <Tag ref={elRef as any} className={className} style={style}>
+    <Tag ref={elRef as any} className={className} style={style} aria-label={text}>
       {/* Pre-fill with empty chars to maintain height/layout */}
       {text.replace(/./g, "\u00A0")}
     </Tag>

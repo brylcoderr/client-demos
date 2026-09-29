@@ -1,0 +1,62 @@
+{
+  "project-1.jpg": {
+    "id": 30580640,
+    "source": "pexels",
+    "alt": "Front view of twin modern houses with a symmetrical architectural design under a cloudy sky."
+  },
+  "project-2.jpg": {
+    "id": 26292374,
+    "source": "pexels",
+    "alt": "Explore the rustic charm of abandoned log cabins set amidst lush greenery on a serene hillside."
+  },
+  "project-3.jpg": {
+    "id": 31907873,
+    "source": "pexels",
+    "alt": "Explore the spiraling architecture inside a modern museum with visitors."
+  },
+  "project-4.jpg": {
+    "id": 38073198,
+    "source": "pexels",
+    "alt": "Crossing metal staircases on an industrial building facade in Tokyo, Japan."
+  },
+  "project-5.jpg": {
+    "id": 4239726,
+    "source": "pexels",
+    "alt": "Beautiful house entrance surrounded by greenery and vibrant yellow facade on a sunny day."
+  },
+  "project-6.jpg": {
+    "id": 740587,
+    "source": "pexels",
+    "alt": "Contemporary hillside villas surrounded by lush greenery under an expansive sky."
+  },
+  "project-7.jpg": {
+    "id": 35378714,
+    "source": "pexels",
+    "alt": "Modern library with unique curved bookshelves and wooden floors, creating a warm and inviting atmosphere."
+  },
+  "project-8.jpg": {
+    "id": 7195900,
+    "source": "pexels",
+    "alt": "Wooden dining table with chairs placed near kitchen with cupboards and modern appliances in spacious light apartment with empty shelves"
+  },
+  "team-1.jpg": {
+    "id": 6615203,
+    "source": "pexels",
+    "alt": "Portrait of an architect working on a miniature model in a modern design studio setting."
+  },
+  "team-2.jpg": {
+    "id": 6615203,
+    "source": "pexels",
+    "alt": "Portrait of an architect working on a miniature model in a modern design studio setting."
+  },
+  "team-3.jpg": {
+    "id": 6615203,
+    "source": "pexels",
+    "alt": "Portrait of an architect working on a miniature model in a modern design studio setting."
+  },
+  "studio.jpg": {
+    "id": 6614835,
+    "source": "pexels",
+    "alt": "Intricate architectural model displayed on a designer's worktable in an office setting."
+  }
+}

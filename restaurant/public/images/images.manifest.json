@@ -1,0 +1,14 @@
+[
+  { "file": "hero.jpg", "query": "wood fired restaurant dish | food", "orientation": "landscape", "minWidth": 1600, "avoid": ["menu board", "fast food"] },
+  { "file": "menu-1.jpg", "query": "mezze platter", "orientation": "landscape", "minWidth": 1600, "must": ["mezze platter"], "avoid": ["menu board", "fast food"] },
+  { "file": "menu-2.jpg", "query": "grilled octopus", "orientation": "landscape", "minWidth": 1600, "must": ["grilled octopus"], "avoid": ["menu board", "fast food"] },
+  { "file": "menu-3.jpg", "query": "lamb chops", "orientation": "landscape", "minWidth": 1600, "must": ["lamb chops"], "avoid": ["menu board", "fast food"] },
+  { "file": "menu-4.jpg", "query": "flatbread", "orientation": "landscape", "minWidth": 1600, "must": ["flatbread"], "avoid": ["menu board", "fast food"] },
+  { "file": "menu-5.jpg", "query": "tiramisu", "orientation": "landscape", "minWidth": 1600, "must": ["tiramisu"], "avoid": ["menu board", "fast food"] },
+  { "file": "menu-6.jpg", "query": "baklava", "orientation": "landscape", "minWidth": 1600, "must": ["baklava"], "avoid": ["menu board", "fast food"] },
+  { "file": "menu-7.jpg", "query": "espresso", "orientation": "landscape", "minWidth": 1600, "must": ["espresso"], "avoid": ["menu board", "fast food"] },
+  { "file": "menu-8.jpg", "query": "lemonade", "orientation": "landscape", "minWidth": 1600, "must": ["lemonade"], "avoid": ["menu board", "fast food"] },
+  { "file": "chef.jpg", "query": "chef portrait kitchen | chef", "orientation": "portrait", "minWidth": 1000, "avoid": ["menu board", "fast food"] },
+  { "file": "interior.jpg", "query": "restaurant interior warm lighting | restaurant", "orientation": "landscape", "minWidth": 1600, "avoid": ["menu board", "fast food"] },
+  { "file": "terrace.jpg", "query": "restaurant terrace evening | terrace,restaurant", "orientation": "landscape", "minWidth": 1600, "avoid": ["menu board", "fast food"] }
+]

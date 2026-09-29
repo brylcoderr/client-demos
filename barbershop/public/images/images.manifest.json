@@ -1,0 +1,71 @@
+[
+  {
+    "file": "hero-barber-chair.jpg",
+    "query": "barber shop interior chair",
+    "must": ["barber", "chair"],
+    "avoid": ["hair salon", "woman", "spa"],
+    "minWidth": 1600
+  },
+  {
+    "file": "shave-hot-towel.jpg",
+    "query": "hot towel shave barber",
+    "must": ["shave", "towel"],
+    "avoid": ["woman"],
+    "minWidth": 1600
+  },
+  {
+    "file": "fade-cut.jpg",
+    "query": "skin fade haircut",
+    "must": ["fade", "haircut"],
+    "avoid": ["woman", "long hair"],
+    "minWidth": 1000
+  },
+  {
+    "file": "beard-trim.jpg",
+    "query": "beard trim barber razor",
+    "must": ["beard"],
+    "avoid": ["woman"],
+    "minWidth": 1000
+  },
+  {
+    "file": "barber-1.jpg",
+    "query": "barber portrait apron",
+    "must": ["barber"],
+    "avoid": ["chef", "bartender"],
+    "minWidth": 1000
+  },
+  {
+    "file": "barber-2.jpg",
+    "query": "barber portrait tattoo",
+    "must": ["barber"],
+    "avoid": ["chef", "bartender"],
+    "minWidth": 1000
+  },
+  {
+    "file": "barber-3.jpg",
+    "query": "barber portrait beard",
+    "must": ["barber"],
+    "avoid": ["chef", "bartender"],
+    "minWidth": 1000
+  },
+  {
+    "file": "barber-4.jpg",
+    "query": "barber portrait apron",
+    "must": ["barber"],
+    "avoid": ["chef", "bartender"],
+    "minWidth": 1000
+  },
+  {
+    "file": "tools-flatlay.jpg",
+    "query": "barber tools scissors razor comb",
+    "must": ["scissors", "razor"],
+    "minWidth": 1600
+  },
+  {
+    "file": "storefront.jpg",
+    "query": "barber shop storefront pole",
+    "must": ["barber", "shop"],
+    "avoid": ["salon"],
+    "minWidth": 1600
+  }
+]

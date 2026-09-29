@@ -1,7 +1,22 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { config } from "../demo.config";
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: config.brand.name,
@@ -10,21 +25,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className="bg-[var(--bg)] text-[var(--fg)] antialiased"
-        style={{
-          // Inject theme variables from config so they're available before JS hydrates
-          ["--bg" as string]: config.theme.bg,
-          ["--fg" as string]: config.theme.fg,
-          ["--muted" as string]: config.theme.muted,
-          ["--accent" as string]: config.theme.accent,
-          ["--accent-2" as string]: config.theme.accent2,
-          ["--radius" as string]: config.theme.radius,
-          ["--font-display" as string]: config.theme.fontDisplay,
-          ["--font-body" as string]: config.theme.fontBody,
-        }}
-      >
+    <html lang="en" className={`${jakarta.variable} ${playfair.variable}`}>
+      <body className="antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { demoConfig } from "../demo.config";
+import { demoConfig, cuisine } from "../demo.config";
 
 const fontDisplay = Fraunces({
   subsets: ["latin"],
@@ -25,21 +25,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fontDisplay.variable} ${fontBody.variable}`}>
-      <body
-        className="bg-[var(--bg)] text-[var(--fg)] antialiased"
-        style={{
-          // Inject theme variables from config so they're available before JS hydrates
-          ["--bg" as string]: demoConfig.theme.bg,
-          ["--fg" as string]: demoConfig.theme.fg,
-          ["--muted" as string]: demoConfig.theme.muted,
-          ["--accent" as string]: demoConfig.theme.accent,
-          ["--accent-2" as string]: demoConfig.theme.accent2,
-          ["--radius" as string]: demoConfig.theme.radius,
-          ["--font-display" as string]: demoConfig.theme.fontDisplay,
-          ["--font-body" as string]: demoConfig.theme.fontBody,
-        }}
-      >
+    <html lang="en" className={`${fontDisplay.variable} ${fontBody.variable}`} data-cuisine={cuisine}>
+      <body className="bg-[var(--bg)] text-[var(--fg)] antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>

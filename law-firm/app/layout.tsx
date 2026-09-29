@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import "./tokens.css";
 import { Providers } from "./providers";
 import { demoConfig } from "../demo.config";
 
@@ -11,7 +12,7 @@ const fontDisplay = Cormorant_Garamond({
   display: "swap",
 });
 
-const fontBody = Inter({
+const fontBody = Source_Sans_3({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
   variable: "--font-body",
@@ -26,20 +27,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${fontDisplay.variable} ${fontBody.variable}`}>
-      <body
-        className="bg-[var(--bg)] text-[var(--fg)] antialiased"
-        style={{
-          // Inject theme variables from config so they're available before JS hydrates
-          ["--bg" as string]: demoConfig.theme.bg,
-          ["--fg" as string]: demoConfig.theme.fg,
-          ["--muted" as string]: demoConfig.theme.muted,
-          ["--accent" as string]: demoConfig.theme.accent,
-          ["--accent-2" as string]: demoConfig.theme.accent2,
-          ["--radius" as string]: demoConfig.theme.radius,
-          ["--font-display" as string]: demoConfig.theme.fontDisplay,
-          ["--font-body" as string]: demoConfig.theme.fontBody,
-        }}
-      >
+      <body className="bg-[var(--bg)] text-[var(--fg)] antialiased font-sans text-[17px] lg:text-[18px]">
         <Providers>{children}</Providers>
       </body>
     </html>

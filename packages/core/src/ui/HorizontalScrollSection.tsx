@@ -57,10 +57,13 @@ export function HorizontalScrollSection({
 
   return (
     <section ref={containerRef} className={`overflow-hidden ${className ?? ""}`}>
+      <style>{`
+        .scroll-track-${panelCount} { width: 100%; }
+        @media (min-width: 768px) { .scroll-track-${panelCount} { width: ${panelCount * 100}vw; } }
+      `}</style>
       <div
         ref={trackRef}
-        className="flex flex-col md:flex-row"
-        style={{ width: `${panelCount * 100}vw` }}
+        className={`flex flex-col md:flex-row scroll-track-${panelCount}`}
       >
         {React.Children.map(children, (child, i) => (
           <div key={i} className="w-full md:w-screen h-auto md:h-screen flex items-center justify-center p-8 md:p-16 shrink-0">

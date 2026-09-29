@@ -1,0 +1,52 @@
+{
+  "hero-framing.jpg": {
+    "id": 37627682,
+    "source": "pexels",
+    "alt": "Framing stage of a new home under construction in Elk Grove, California."
+  },
+  "roof-install.jpg": {
+    "id": 33404248,
+    "source": "pexels",
+    "alt": "Roofer using nail gun for shingle installation on residential roof."
+  },
+  "kitchen-a.jpg": {
+    "id": 37357024,
+    "source": "pexels",
+    "alt": "Bright, newly renovated kitchen featuring white cabinets, hardwood floors, and stainless steel appliances."
+  },
+  "kitchen-b.jpg": {
+    "id": 36035073,
+    "source": "pexels",
+    "alt": "Spacious kitchen under renovation with ladder and tools, showcasing a fresh new design."
+  },
+  "concrete-pour.jpg": {
+    "id": 37121400,
+    "source": "pexels",
+    "alt": "Workers in safety gear pouring concrete outdoors with a cement mixer truck."
+  },
+  "crew.jpg": {
+    "id": 33266,
+    "source": "pexels",
+    "alt": "Construction workers in hard hats walking at a site, highlighting teamwork and safety."
+  },
+  "finished-home.jpg": {
+    "id": 15338994,
+    "source": "pexels",
+    "alt": "A rustic wooden farmhouse surrounded by dense forest, captured in the serene twilight of the countryside."
+  },
+  "blueprint.jpg": {
+    "id": 37198884,
+    "source": "pexels",
+    "alt": "Group of engineers in safety gear reviewing blueprints indoors."
+  },
+  "project-1.jpg": {
+    "id": 28885519,
+    "source": "pexels",
+    "alt": "A suburban house undergoing major renovations with scaffolding and building materials."
+  },
+  "project-2.jpg": {
+    "id": 12172496,
+    "source": "pexels",
+    "alt": "Close-up of carpentry work on a deck with a nail gun and wooden frame under construction."
+  }
+}

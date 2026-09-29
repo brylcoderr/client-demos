@@ -1,0 +1,12 @@
+[
+  { "file": "hero-ring.jpg", "query": "diamond ring black background | ring", "orientation": "landscape", "minWidth": 1600, "must": ["ring"], "avoid": ["costume", "cartoon", "clipart"] },
+  { "file": "product-1.jpg", "query": "gold necklace", "orientation": "landscape", "minWidth": 1600, "must": ["necklace"], "avoid": ["costume", "cartoon", "clipart"] },
+  { "file": "product-2.jpg", "query": "pearl earrings", "orientation": "landscape", "minWidth": 1600, "must": ["earrings"], "avoid": ["costume", "cartoon", "clipart"] },
+  { "file": "product-3.jpg", "query": "signet ring", "orientation": "landscape", "minWidth": 1600, "must": ["ring"], "avoid": ["costume", "cartoon", "clipart"] },
+  { "file": "product-4.jpg", "query": "tennis bracelet", "orientation": "landscape", "minWidth": 1600, "must": ["bracelet"], "avoid": ["costume", "cartoon", "clipart"] },
+  { "file": "product-5.jpg", "query": "emerald pendant", "orientation": "landscape", "minWidth": 1600, "must": ["pendant"], "avoid": ["costume", "cartoon", "clipart"] },
+  { "file": "product-6.jpg", "query": "wedding bands", "orientation": "landscape", "minWidth": 1600, "must": ["bands"], "avoid": ["costume", "cartoon", "clipart"] },
+  { "file": "product-7.jpg", "query": "luxury watch", "orientation": "landscape", "minWidth": 1600, "must": ["watch"], "avoid": ["costume", "cartoon", "clipart"] },
+  { "file": "product-8.jpg", "query": "jewelry gift box", "orientation": "landscape", "minWidth": 1600, "must": ["box"], "avoid": ["costume", "cartoon", "clipart"] },
+  { "file": "collection-model.jpg", "query": "jewelry model portrait | jewelry", "orientation": "portrait", "minWidth": 1000, "must": ["jewelry"], "avoid": ["costume", "cartoon", "clipart"] }
+]

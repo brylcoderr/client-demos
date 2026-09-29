@@ -31,7 +31,7 @@ export function Footer({ brand, links, className }: { brand: string; links: Foot
           {brand}
         </span>
 
-        <nav className="flex flex-wrap gap-6 text-sm text-[var(--muted)]">
+        <nav aria-label="Footer Navigation" className="flex flex-wrap gap-6 text-sm text-[var(--fg-muted)]">
           {links.map((l) => (
             <a key={l.label} href={l.href} className="hover:text-[var(--accent)] transition-colors min-h-[44px] flex items-center">
               {l.label}

@@ -1,0 +1,98 @@
+[
+  {
+    "file": "project-1.jpg",
+    "query": "minimalist house exterior",
+    "must": ["house", "exterior"],
+    "avoid": ["people crowd", "cityscape", "skyline", "people"],
+    "minWidth": 1600,
+    "orientation": "landscape"
+  },
+  {
+    "file": "project-2.jpg",
+    "query": "timber cabin architecture",
+    "must": ["cabin"],
+    "avoid": ["people crowd", "cityscape", "skyline", "people"],
+    "minWidth": 1600,
+    "orientation": "landscape"
+  },
+  {
+    "file": "project-3.jpg",
+    "query": "museum interior light",
+    "must": ["museum", "interior"],
+    "avoid": ["people crowd", "cityscape", "skyline", "people"],
+    "minWidth": 1600,
+    "orientation": "landscape"
+  },
+  {
+    "file": "project-4.jpg",
+    "query": "staircase architecture",
+    "must": ["staircase"],
+    "avoid": ["people crowd", "cityscape", "skyline", "people"],
+    "minWidth": 1600,
+    "orientation": "landscape"
+  },
+  {
+    "file": "project-5.jpg",
+    "query": "courtyard house",
+    "must": ["courtyard", "house"],
+    "avoid": ["people crowd", "cityscape", "skyline", "people"],
+    "minWidth": 1600,
+    "orientation": "landscape"
+  },
+  {
+    "file": "project-6.jpg",
+    "query": "concrete villa",
+    "must": ["concrete", "villa"],
+    "avoid": ["people crowd", "cityscape", "skyline", "people"],
+    "minWidth": 1600,
+    "orientation": "landscape"
+  },
+  {
+    "file": "project-7.jpg",
+    "query": "library interior wood",
+    "must": ["library", "interior"],
+    "avoid": ["people crowd", "cityscape", "skyline", "people"],
+    "minWidth": 1600,
+    "orientation": "landscape"
+  },
+  {
+    "file": "project-8.jpg",
+    "query": "apartment interior minimal",
+    "must": ["apartment", "interior"],
+    "avoid": ["people crowd", "cityscape", "skyline", "people"],
+    "minWidth": 1600,
+    "orientation": "landscape"
+  },
+  {
+    "file": "team-1.jpg",
+    "query": "architect portrait studio",
+    "must": ["architect"],
+    "avoid": ["people crowd", "cityscape", "skyline"],
+    "minWidth": 1000,
+    "orientation": "portrait"
+  },
+  {
+    "file": "team-2.jpg",
+    "query": "architect portrait studio",
+    "must": ["architect"],
+    "avoid": ["people crowd", "cityscape", "skyline"],
+    "minWidth": 1000,
+    "orientation": "portrait"
+  },
+  {
+    "file": "team-3.jpg",
+    "query": "architect portrait studio",
+    "must": ["architect"],
+    "avoid": ["people crowd", "cityscape", "skyline"],
+    "minWidth": 1000,
+    "orientation": "portrait"
+  },
+  {
+    "file": "studio.jpg",
+    "query": "architecture model desk",
+    "must": ["model"],
+    "avoid": ["people crowd", "cityscape", "skyline"],
+    "minWidth": 1600,
+    "orientation": "landscape"
+  }
+]

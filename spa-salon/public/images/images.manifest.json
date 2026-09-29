@@ -1,0 +1,16 @@
+[
+  { "file": "hero-spa-interior.jpg", "query": "luxury spa salon interior", "orientation": "landscape", "minWidth": 1600, "must": ["spa", "salon"], "avoid": ["hotel lobby", "massage"] },
+  { "file": "hair-balayage.jpg", "query": "balayage hair color close up", "orientation": "landscape", "minWidth": 1000, "must": ["hair"], "avoid": ["wig", "mannequin", "barber"] },
+  { "file": "facial-photo.jpg", "query": "facial skin closeup woman", "orientation": "portrait", "minWidth": 1000, "must": ["face", "skin"], "avoid": ["cartoon"] },
+  { "file": "nails-macro.jpg", "query": "manicure nails pearl neutral close up", "orientation": "landscape", "minWidth": 1000, "must": ["nails"], "avoid": ["polish bottle", "tools"] },
+  { "file": "lashes-macro.jpg", "query": "eyelash extensions close up", "orientation": "landscape", "minWidth": 1000, "must": ["eyelash", "lash"], "avoid": ["mascara"] },
+  { "file": "facial-treatment.jpg", "query": "facial treatment spa woman", "orientation": "landscape", "minWidth": 1000, "must": ["facial"], "avoid": ["dentist"] },
+  { "file": "therapist-1.jpg", "query": "spa therapist portrait", "orientation": "portrait", "minWidth": 1000, "must": ["person"], "avoid": ["patient", "crowd"] },
+  { "file": "therapist-2.jpg", "query": "beauty therapist portrait", "orientation": "portrait", "minWidth": 1000, "must": ["person"], "avoid": ["patient", "crowd"] },
+  { "file": "therapist-3.jpg", "query": "spa therapist portrait", "orientation": "portrait", "minWidth": 1000, "must": ["person"], "avoid": ["patient", "crowd"] },
+  { "file": "therapist-4.jpg", "query": "beauty therapist portrait", "orientation": "portrait", "minWidth": 1000, "must": ["person"], "avoid": ["patient", "crowd"] },
+  { "file": "products-shelf.jpg", "query": "cosmetics skincare products shelf pastel", "orientation": "landscape", "minWidth": 1000, "must": ["skincare", "cosmetic"], "avoid": ["pharmacy", "supermarket"] },
+  { "file": "gallery-1.jpg", "query": "hair salon styling editorial", "orientation": "landscape", "minWidth": 1000, "must": ["hair"], "avoid": ["crowd"] },
+  { "file": "gallery-2.jpg", "query": "spa treatment room candle", "orientation": "landscape", "minWidth": 1000, "must": ["spa", "candle"], "avoid": ["crowd"] },
+  { "file": "gallery-3.jpg", "query": "nail salon manicure hands", "orientation": "landscape", "minWidth": 1000, "must": ["nail", "manicure"], "avoid": ["crowd"] }
+]

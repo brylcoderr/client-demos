@@ -14,7 +14,7 @@ export interface AutoShopConfig extends DemoConfig {
   }>;
 }
 
-export const config: AutoShopConfig = {
+export const demoConfig: AutoShopConfig = {
   brand: {
     name: "Apex Auto",
     tagline: "Precision Engineering. Flawless Collision Repair.",

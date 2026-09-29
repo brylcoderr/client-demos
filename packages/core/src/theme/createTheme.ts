@@ -20,9 +20,11 @@ export function createTheme(theme: DemoConfig["theme"]) {
   const s = document.documentElement.style;
   s.setProperty("--bg", theme.bg);
   s.setProperty("--fg", theme.fg);
-  s.setProperty("--muted", theme.muted);
+  s.setProperty("--muted", theme.muted || "");
   s.setProperty("--accent", theme.accent);
-  s.setProperty("--accent-2", theme.accent2);
+  s.setProperty("--accent-2", theme.accent2 || "");
+  s.setProperty("--surface", theme.surface || "");
+  s.setProperty("--surface-2", theme.surface2 || "");
   s.setProperty("--radius", theme.radius);
   s.setProperty("--font-display", theme.fontDisplay);
   s.setProperty("--font-body", theme.fontBody);

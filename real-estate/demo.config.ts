@@ -37,14 +37,14 @@ export const config: RealEstateDemoConfig = {
     hours: ["Mon - Sat: 9 AM - 6 PM", "Sun: By Appointment"],
   },
   theme: {
-    bg: "#FBF8F3",        // Warm white
-    fg: "#0F3B2E",        // Deep green
-    muted: "#667B73",     // Muted green-grey
-    accent: "#B8935A",    // Brass accent
-    accent2: "#0A281F",   // Darker green
-    radius: "0px",        // Sharp edges for a refined look
-    fontDisplay: "'Playfair Display', serif",
-    fontBody: "'Plus Jakarta Sans', sans-serif",
+    bg: "#FBF8F3",
+    fg: "#0F3B2E",
+    muted: "#667B73",
+    accent: "#B8935A",
+    accent2: "#0A281F",
+    radius: "0px",
+    fontDisplay: "var(--font-display)",
+    fontBody: "var(--font-body)",
   },
   searchOptions: {
     locations: ["Downtown", "Uptown", "Westside", "Suburbs", "Waterfront"],
@@ -58,7 +58,7 @@ export const config: RealEstateDemoConfig = {
       beds: 4,
       baths: 3.5,
       sqft: "3,200",
-      image: "/placeholder-house1.jpg",
+      image: "/images/listing-1.jpg",
       tag: "Just Listed"
     },
     {
@@ -68,7 +68,7 @@ export const config: RealEstateDemoConfig = {
       beds: 3,
       baths: 4,
       sqft: "4,500",
-      image: "/placeholder-house2.jpg",
+      image: "/images/listing-2.jpg",
       tag: "Open House"
     },
     {
@@ -78,14 +78,40 @@ export const config: RealEstateDemoConfig = {
       beds: 3,
       baths: 2,
       sqft: "2,100",
-      image: "/placeholder-house3.jpg",
+      image: "/images/listing-3.jpg",
+    },
+    {
+      id: "4",
+      title: "102 Ocean View",
+      price: "$3,850,000",
+      beds: 5,
+      baths: 4.5,
+      sqft: "5,000",
+      image: "/images/listing-4.jpg",
+    },
+    {
+      id: "5",
+      title: "300 Park Avenue",
+      price: "$1,750,000",
+      beds: 2,
+      baths: 2,
+      sqft: "1,800",
+      image: "/images/listing-5.jpg",
+    },
+    {
+      id: "6",
+      title: "77 Sunset Blvd",
+      price: "$4,200,000",
+      beds: 4,
+      baths: 4,
+      sqft: "4,100",
+      image: "/images/listing-6.jpg",
     }
   ],
   services: [],
   team: [
     { name: "Sarah Jenkins", role: "Principal Broker", bio: "Over $100M in luxury sales." },
-    { name: "Michael Thorne", role: "Neighborhood Specialist", bio: "Deep roots in the community." },
-    { name: "Elena Rostova", role: "Relocation Expert", bio: "Making global moves seamless." }
+    { name: "Michael Thorne", role: "Neighborhood Specialist", bio: "Deep roots in the community." }
   ],
   buyingJourney: [
     { step: "01", title: "Search & Discover", description: "Curated listings tailored to your exact lifestyle and needs." },
@@ -94,9 +120,10 @@ export const config: RealEstateDemoConfig = {
     { step: "04", title: "Closing", description: "White-glove service through paperwork and key delivery." }
   ],
   neighborhoods: [
-    { name: "Historic District", description: "Cobblestone streets and timeless architecture.", image: "/nh1.jpg" },
-    { name: "Financial Center", description: "High-rise luxury and unparalleled convenience.", image: "/nh2.jpg" },
-    { name: "The Heights", description: "Panoramic views and sprawling estates.", image: "/nh3.jpg" },
+    { name: "Historic District", description: "Cobblestone streets and timeless architecture.", image: "/images/hood-1.jpg" },
+    { name: "Financial Center", description: "High-rise luxury and unparalleled convenience.", image: "/images/hood-2.jpg" },
+    { name: "The Heights", description: "Panoramic views and sprawling estates.", image: "/images/hood-3.jpg" },
+    { name: "Waterfront", description: "Coastal living at its finest.", image: "/images/hood-4.jpg" },
   ],
   testimonials: [
     { name: "Arthur P.", text: "Northgate found our dream home before it even hit the market.", rating: 5 },

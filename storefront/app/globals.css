@@ -1,19 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;700&family=Fredoka+One&family=Nunito:wght@400;600;700&family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&family=Oswald:wght@400;600;700&display=swap');
+@import "./tokens.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ─── Base reset ──────────────────────────────────────────── */
+html, body {
+  overflow-x: clip;
+}
 
-@layer base {
-  body {
-    background-color: var(--bg);
-    color: var(--fg);
-    font-family: var(--font-body);
-  }
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.2vw, 18px);
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-  }
+::selection {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
 }
 
 .hide-scrollbar {
@@ -23,3 +28,6 @@
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* ─── Tailwind v4 source detection ────────────────────────── */
+@source "../../node_modules/@client-demos/core/src/**/*.{ts,tsx}";

@@ -1,0 +1,7 @@
+- [hero-wheel.jpg](https://www.pexels.com/photo/wheel-with-brake-caliper-18845869/) by Jordan Rushton (Pexels License)
+- [collision-a.jpg](https://www.pexels.com/photo/close-up-of-damaged-yellow-car-front-bumper-33749906/) by Jorge Romero (Pexels License)
+- [collision-b.jpg](https://www.pexels.com/photo/car-repair-and-maintenance-workshop-interior-33814734/) by Renee Razumov (Pexels License)
+- [paint-booth.jpg](https://www.pexels.com/photo/close-up-of-man-painting-car-details-14615263/) by Dextar Studio ™ (Pexels License)
+- [mechanic.jpg](https://www.pexels.com/photo/man-in-blue-coverall-standing-near-a-car-8985967/) by Artem Podrez (Pexels License)
+- [shop-interior.jpg](https://www.pexels.com/photo/car-repair-and-maintenance-workshop-interior-33814734/) by Renee Razumov (Pexels License)
+- [tires.jpg](https://www.pexels.com/photo/stacked-vehicle-tires-in-black-and-white-37002235/) by wal_ 172619 (Pexels License)

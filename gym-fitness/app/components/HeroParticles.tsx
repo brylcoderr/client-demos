@@ -4,6 +4,7 @@ import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useDeviceTier, useScrollVelocity } from "@client-demos/core";
+import { getToken } from "../../lib/token";
 
 export function HeroParticles() {
   const tier = useDeviceTier();
@@ -87,7 +88,7 @@ export function HeroParticles() {
   return (
     <instancedMesh ref={meshRef} args={[undefined, undefined, particleCount]}>
       <boxGeometry args={[0.08, 0.08, 0.08]} />
-      <meshBasicMaterial color="#C6FF00" />
+      <meshBasicMaterial color={typeof window !== 'undefined' ? getToken('--accent') || 'gold' : 'gold'} />
     </instancedMesh>
   );
 }

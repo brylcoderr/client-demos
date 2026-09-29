@@ -1,15 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap');
+@import "tailwindcss";
+@source "../../packages/core/src";
+@import "./tokens.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --color-*: initial;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-accent-2: var(--accent-2);
+  --color-border: var(--border);
+  --color-inverse-bg: var(--inverse-bg);
+  --color-inverse-fg: var(--inverse-fg);
+  --color-scrim: var(--scrim);
+  
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-white: #FFFFFF;
+}
 
 @layer base {
-  body {
+  html {
+    font-size: 18px; /* Slightly larger base font for accessibility */
+  }
+
+  html, body {
     background-color: var(--bg);
     color: var(--fg);
+    overflow-x: clip;
     font-family: var(--font-body);
-    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -19,8 +41,8 @@
   
   /* Accessibility focus states */
   *:focus-visible {
-    outline: 3px solid var(--accent);
-    outline-offset: 4px;
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
     border-radius: 2px;
   }
 }
@@ -31,9 +53,4 @@
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
-}
-
-/* Accessible text sizes */
-html {
-  font-size: 18px; /* Slightly larger base font for accessibility */
 }

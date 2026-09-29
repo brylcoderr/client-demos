@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGsapContext } from "@client-demos/core";
@@ -13,6 +13,11 @@ export function HorizontalCarousel({ children }: { children: React.ReactNode }) 
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const panelCount = React.Children.count(children);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    setIsDesktop(window.innerWidth >= 768);
+  }, []);
 
   useGsapContext(() => {
     // Only apply GSAP pinning on desktop
@@ -39,7 +44,7 @@ export function HorizontalCarousel({ children }: { children: React.ReactNode }) 
       <div
         ref={trackRef}
         className="flex md:h-screen w-full overflow-x-auto snap-x snap-mandatory md:overflow-x-visible md:snap-none hide-scrollbar"
-        style={{ width: typeof window !== 'undefined' && window.innerWidth >= 768 ? `${panelCount * 100}vw` : 'auto' }}
+        style={{ width: isDesktop ? `${panelCount * 100}vw` : 'auto' }}
       >
         {React.Children.map(children, (child, i) => (
           <div key={i} className="w-[85vw] md:w-screen h-[60vh] md:h-screen flex items-center justify-center p-4 md:p-16 shrink-0 snap-center">

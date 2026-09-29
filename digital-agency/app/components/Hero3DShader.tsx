@@ -6,14 +6,15 @@ import { shaderMaterial, Float, Points, PointMaterial } from "@react-three/drei"
 import * as THREE from "three";
 import { extend } from "@react-three/fiber";
 import { useDeviceTier } from "@client-demos/core";
+import { getToken } from "../../lib/token";
 
 // ─── Custom Shader Material ──────────────────────────────────
 const BlobMaterial = shaderMaterial(
   {
     uTime: 0,
-    uColor1: new THREE.Color("#7C3AED") as any,
-    uColor2: new THREE.Color("#22D3EE") as any,
-    uColor3: new THREE.Color("#F0ABFC") as any,
+    uColor1: new THREE.Color("var(--accent)") as any,
+    uColor2: new THREE.Color("var(--accent)") as any,
+    uColor3: new THREE.Color("var(--accent)") as any,
   },
   // Vertex Shader
   `
@@ -116,9 +117,17 @@ extend({ BlobMaterial });
 
 function MorphingBlob() {
   const materialRef = useRef<any>(null);
+  
+  const accent = typeof window !== 'undefined' ? getToken('--accent') || '#7C3AED' : '#7C3AED';
+  const accent2 = typeof window !== 'undefined' ? getToken('--accent-2') || '#22D3EE' : '#22D3EE';
+  const accent3 = typeof window !== 'undefined' ? getToken('--accent-3') || '#F0ABFC' : '#F0ABFC';
+
   useFrame((state) => {
     if (materialRef.current) {
       materialRef.current.uTime = state.clock.elapsedTime;
+      materialRef.current.uColor1.set(accent);
+      materialRef.current.uColor2.set(accent2);
+      materialRef.current.uColor3.set(accent3);
     }
   });
 
@@ -154,9 +163,11 @@ function ParticleNetwork() {
     pointsRef.current.position.y = THREE.MathUtils.lerp(pointsRef.current.position.y, state.pointer.y * 2, 0.05);
   });
 
+  const accent = typeof window !== 'undefined' ? getToken('--accent') || '#7C3AED' : '#7C3AED';
+
   return (
     <Points ref={pointsRef} positions={positions} stride={3}>
-      <PointMaterial transparent color="#F0ABFC" size={0.05} sizeAttenuation={true} depthWrite={false} opacity={0.6} />
+      <PointMaterial transparent color={accent} size={0.05} sizeAttenuation={true} depthWrite={false} opacity={0.6} />
     </Points>
   );
 }

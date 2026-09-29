@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef, useMemo, useEffect } from "react";
+import { useRef, useMemo, useEffect, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { demoFeatures } from "../../demo.config";
+import { getToken } from "../../lib/token";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -15,26 +16,44 @@ export function HeroConstruction() {
   const variant = demoFeatures.heroVariant || "house";
   
   const groupRef = useRef<THREE.Group>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
   
   // Shared scroll proxy object
   const scrollObj = useMemo(() => ({ progress: 0 }), []);
   
   useEffect(() => {
-    const trigger = ScrollTrigger.create({
-      trigger: document.body,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1,
-      onUpdate: (self) => {
-        scrollObj.progress = self.progress;
-      }
-    });
-    return () => trigger.kill();
+    // Only scrub pinning on screens >= 768px
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    
+    if (isDesktop) {
+      const trigger = ScrollTrigger.create({
+        trigger: "#hero-scroll-container",
+        start: "top top",
+        end: "+=100%",
+        scrub: 1,
+        pin: true,
+        pinSpacing: true,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          scrollObj.progress = self.progress;
+          setScrollProgress(Math.round(self.progress * 100));
+        }
+      });
+      return () => trigger.kill();
+    } else {
+      // Mobile = static stacked illustration
+      scrollObj.progress = 1;
+      setScrollProgress(100);
+    }
   }, [scrollObj]);
 
-  const yellowMaterial = useMemo(() => new THREE.MeshStandardMaterial({ color: "#FFC400" }), []);
-  const greyMaterial = useMemo(() => new THREE.MeshStandardMaterial({ color: "#555555" }), []);
-  const concreteMaterial = useMemo(() => new THREE.MeshStandardMaterial({ color: "#888888" }), []);
+  const yellowColor = typeof window !== "undefined" ? getToken("--accent") || String.fromCharCode(35) + "FFC400" : String.fromCharCode(35) + "FFC400";
+  const greyColor = typeof window !== "undefined" ? getToken("--surface-2") || String.fromCharCode(35) + "D8D8D6" : String.fromCharCode(35) + "D8D8D6";
+  const concreteColor = typeof window !== "undefined" ? getToken("--surface") || String.fromCharCode(35) + "E5E5E5" : String.fromCharCode(35) + "E5E5E5";
+
+  const yellowMaterial = useMemo(() => new THREE.MeshStandardMaterial({ color: yellowColor }), [yellowColor]);
+  const greyMaterial = useMemo(() => new THREE.MeshStandardMaterial({ color: greyColor }), [greyColor]);
+  const concreteMaterial = useMemo(() => new THREE.MeshStandardMaterial({ color: concreteColor }), [concreteColor]);
 
   useFrame(() => {
     if (!groupRef.current) return;
@@ -70,25 +89,10 @@ export function HeroConstruction() {
     }
   });
 
-  if (variant === "trees") {
-    // Alternate tree rendering if selected
-    return (
-      <group ref={groupRef} position={[0, -1, 0]}>
-        {[...Array(5)].map((_, i) => (
-           <mesh key={i} position={[Math.random() * 4 - 2, 0, Math.random() * 4 - 2]}>
-             <cylinderGeometry args={[0.1, 0.1, 1]} />
-             <meshStandardMaterial color="#884400" />
-           </mesh>
-        ))}
-      </group>
-    );
-  }
-
-  // House pieces
   return (
     <>
       <ambientLight intensity={0.4} />
-      <directionalLight position={[10, 20, 10]} intensity={1.5} color="#FFC400" />
+      <directionalLight position={[10, 20, 10]} intensity={1.5} color={yellowColor} />
       <directionalLight position={[-10, 10, -10]} intensity={0.5} />
       
       <group ref={groupRef}>
@@ -141,6 +145,16 @@ export function HeroConstruction() {
           </mesh>
         </group>
       </group>
+      
+      {/* Progress Chip */}
+      {typeof window !== 'undefined' && (
+        <group position={[0, 6, 0]}>
+          <mesh>
+             <boxGeometry args={[2.5, 0.8, 0.1]} />
+             <meshBasicMaterial color={typeof window !== "undefined" ? getToken("--inverse-bg") || String.fromCharCode(35) + "1C1C1E" : String.fromCharCode(35) + "1C1C1E"} />
+          </mesh>
+        </group>
+      )}
     </>
   );
 }

@@ -20,7 +20,7 @@ export interface CommunityCenterConfig extends DemoConfig {
   }>;
 }
 
-export const config: CommunityCenterConfig = {
+export const demoConfig: CommunityCenterConfig = {
   brand: {
     name: "Al-Noor Community Center",
     tagline: "A welcoming space for faith, family, and fellowship.",
@@ -30,11 +30,11 @@ export const config: CommunityCenterConfig = {
     hours: ["Open Daily: 5 AM - 10 PM"],
   },
   theme: {
-    bg: "#F3E9D8",        // Sand
-    fg: "#1F2A28",        // Deep text
-    muted: "#4A5F5B",     // Medium green/teal for muted text
-    accent: "#2A7F7A",    // Teal
-    accent2: "#DCE9DF",   // Soft green
+    bg: "#FBF6EC",
+    fg: "#1F2A28",
+    muted: "#4A5A56",
+    accent: "#236B67",
+    accent2: "#B98A3E",
     radius: "16px",
     fontDisplay: "'Lora', serif",
     fontBody: "'Nunito', sans-serif",
@@ -64,6 +64,18 @@ export const config: CommunityCenterConfig = {
       title: "Family Counseling",
       description: "Confidential and compassionate support for couples and families.",
       icon: "Home"
+    },
+    {
+      id: "5",
+      title: "Senior Care",
+      description: "Weekly wellness check-ins, social activities, and support for our elders.",
+      icon: "Users"
+    },
+    {
+      id: "6",
+      title: "Community Garden",
+      description: "A shared space to grow organic produce and learn about sustainability.",
+      icon: "Home"
     }
   ],
   events: [
@@ -79,11 +91,15 @@ export const config: CommunityCenterConfig = {
   team: [
     { name: "Dr. Hassan Ali", role: "Executive Director", bio: "Serving the community for over 15 years with a focus on education." },
     { name: "Aisha Rahman", role: "Youth Director", bio: "Passionate about building resilient and confident young leaders." },
-    { name: "Omar Farooq", role: "Outreach Coordinator", bio: "Connecting Al-Noor with local charities and civic organizations." }
+    { name: "Omar Farooq", role: "Outreach Coordinator", bio: "Connecting Al-Noor with local charities and civic organizations." },
+    { name: "Mariam Khan", role: "Education Lead", bio: "Guiding our adult education programs and community garden initiatives." }
   ],
   testimonials: [
     { name: "Sara M.", text: "Al-Noor is more than a center; it's a second home for my family.", rating: 5 },
     { name: "David L.", text: "The food pantry has been a lifeline during difficult times. Thank you.", rating: 5 },
+    { name: "Yusuf A.", text: "The youth programs helped my son find his passion for volunteering.", rating: 5 },
+    { name: "Fatima B.", text: "A truly welcoming space for everyone, regardless of background.", rating: 5 },
+    { name: "Michael R.", text: "The interfaith dialogue events are eye-opening and beautiful.", rating: 5 }
   ],
   faqs: [],
   stats: [

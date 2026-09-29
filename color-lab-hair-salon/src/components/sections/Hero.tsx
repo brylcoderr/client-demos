@@ -69,7 +69,7 @@ export function Hero() {
       </div>
 
       {/* Mobile Gradient Fallback */}
-      <div className="absolute inset-0 md:hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#2a2211] via-background to-background opacity-60" />
+      <div className="absolute inset-0 md:hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[var(--accent)] via-background to-background opacity-60" />
       
       <HeroCanvas />
 

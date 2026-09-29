@@ -8,6 +8,8 @@ import {
   ContactForm,
   Footer,
   HeroCanvas,
+  SmartImage,
+  MagneticButton
 } from "@client-demos/core";
 import { demoConfig } from "../demo.config";
 import { HeroBarberPole } from "./components/HeroBarberPole";
@@ -20,28 +22,33 @@ const navLinks = [
 ];
 
 export default function Home() {
+  const isOpen = new Date().getHours() >= 9 && new Date().getHours() < 18;
+
   return (
-    <>
-      <StickyNav logo={demoConfig.brand.name} links={navLinks} />
+    <main className="overflow-x-clip bg-[var(--bg)] text-[var(--fg)]">
+      <StickyNav logo={demoConfig.brand.name} links={navLinks} aria-label="Main Navigation" />
 
       {/* ─── Hero ──────────────────────────────────────────── */}
-      <section className="relative h-screen w-full flex flex-col items-center justify-center px-6 text-center overflow-hidden bg-[var(--bg)]">
+      <section className="relative h-[100svh] w-full flex flex-col items-center justify-center px-6 text-center overflow-hidden bg-[var(--bg)]">
         {/* 3D Background */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-[var(--z-base)] pointer-events-none">
           <HeroCanvas 
             scene={<HeroBarberPole />} 
             fallback={
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-20 h-[80vh] rounded-full overflow-hidden relative shadow-2xl rotate-12">
-                   <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,#801010_0_20px,#ffffff_20px_40px,#102080_40px_60px,#ffffff_60px_80px)] animate-[pulse_5s_infinite_linear] opacity-50" />
+                   <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,#801010_0_20px,#ffffff_20px_40px,#102080_40px_60px,#ffffff_60px_80px)] animate-[pulse_5s_infinite_linear] opacity-10" />
                 </div>
               </div>
             } 
           />
         </div>
 
+        {/* Scrim for text readability */}
+        <div className="absolute inset-0 z-[var(--z-base)] pointer-events-none scrim-bottom" />
+
         {/* Hero Content */}
-        <div className="relative z-10 pointer-events-none flex flex-col items-center bg-[var(--bg)]/80 p-8 border border-[var(--accent)]/30 backdrop-blur-sm shadow-2xl">
+        <div className="relative z-[var(--z-content)] pointer-events-none flex flex-col items-center p-8">
           <Reveal>
             <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-[var(--accent)] mb-4 font-bold">
               Est. 2014
@@ -56,21 +63,21 @@ export default function Home() {
           />
 
           <Reveal delay={0.3}>
-            <p className="mt-6 text-lg md:text-xl text-[var(--fg)] max-w-xl opacity-90 uppercase tracking-widest font-light">
+            <p className="mt-6 text-lg md:text-xl text-[var(--fg-muted)] max-w-xl uppercase tracking-widest font-light">
               {demoConfig.brand.tagline}
             </p>
           </Reveal>
           
           <Reveal delay={0.5}>
-            <a href="#booking" className="pointer-events-auto mt-10 inline-block px-8 py-4 bg-[var(--accent)] text-[var(--bg)] font-bold uppercase tracking-widest hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-colors">
+            <a href="#booking" className="pointer-events-auto mt-10 inline-block px-8 py-4 bg-[var(--accent)] text-[var(--on-accent)] font-bold uppercase tracking-widest hover:brightness-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--fg)]">
               Book a Chair
             </a>
           </Reveal>
         </div>
       </section>
 
-      {/* Diagonal wipe transition wrapper for next section */}
-      <div className="relative z-20 -mt-20 pt-32 pb-24 px-6 bg-[var(--accent2)] border-t-[4px] border-[var(--accent)]" style={{ clipPath: "polygon(0 80px, 100% 0, 100% 100%, 0 100%)" }}>
+      {/* Diagonal edge via clip-path */}
+      <div className="relative z-[var(--z-content)] pt-32 pb-24 px-6 bg-[var(--surface)] border-t-[4px] border-[var(--border)]" style={{ clipPath: "polygon(0 80px, 100% 0, 100% 100%, 0 100%)" }} data-surface="raised">
         
         {/* ─── Stats ─────────────────────────────────────────── */}
         <div className="max-w-5xl mx-auto mb-32">
@@ -83,34 +90,38 @@ export default function Home() {
                   label={stat.label}
                   className="text-5xl text-[var(--accent)] font-bold mb-2"
                 />
-                <p className="text-sm uppercase tracking-widest text-[var(--muted)] font-bold">{stat.label}</p>
+                <p className="text-sm uppercase tracking-widest text-[var(--fg-muted)] font-bold">{stat.label}</p>
               </div>
             ))}
           </Stagger>
         </div>
 
         {/* ─── Services ──────────────────────────────────────── */}
-        <section id="services" className="max-w-6xl mx-auto">
-          <SplitTextReveal text="Menu of Services" tag="h2" className="text-5xl md:text-7xl mb-16 uppercase tracking-tight text-[var(--fg)]" style={{ fontFamily: "var(--font-display)" }} />
-
-          <Stagger className="grid md:grid-cols-2 gap-x-16 gap-y-12">
-            {demoConfig.services.map((service) => (
-              <div key={service.title} className="group cursor-default">
-                <div className="flex justify-between items-end mb-2 border-b-2 border-[var(--muted)]/30 pb-2 group-hover:border-[var(--accent)] transition-colors duration-500">
-                  <h3 className="text-2xl uppercase tracking-wider text-[var(--fg)]" style={{ fontFamily: "var(--font-display)" }}>
-                    {service.title}
-                  </h3>
-                  <span className="text-[var(--accent)] font-bold text-xl">{service.price}</span>
+        <section id="services" className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16">
+          <div className="flex-1">
+            <SplitTextReveal text="Menu of Services" tag="h2" className="text-5xl md:text-7xl mb-16 uppercase tracking-tight text-[var(--fg)]" style={{ fontFamily: "var(--font-display)" }} />
+            <Stagger className="flex flex-col gap-12">
+              {demoConfig.services.map((service) => (
+                <div key={service.title} className="group cursor-default">
+                  <div className="flex justify-between items-end mb-2 border-b-2 border-[var(--border)] pb-2 group-hover:border-[var(--accent)] transition-colors duration-500">
+                    <h3 className="text-2xl uppercase tracking-wider text-[var(--fg)]" style={{ fontFamily: "var(--font-display)" }}>
+                      {service.title}
+                    </h3>
+                    <span className="text-[var(--accent)] font-bold text-xl">{service.price}</span>
+                  </div>
+                  <p className="text-[var(--fg-muted)] leading-relaxed text-sm md:text-base font-light">{service.description}</p>
                 </div>
-                <p className="text-[var(--muted)] leading-relaxed text-sm md:text-base font-light">{service.description}</p>
-              </div>
-            ))}
-          </Stagger>
+              ))}
+            </Stagger>
+          </div>
+          <div className="flex-1 relative min-h-[400px]">
+            <SmartImage src="/images/hero-barber-chair.jpg" alt="Barber Chair" width={800} height={1000} className="w-full h-full object-cover rounded-sm grayscale contrast-125" />
+          </div>
         </section>
       </div>
 
       {/* ─── Pinned Process ────────────────────────────────── */}
-      <section id="process" className="bg-[var(--bg)] relative z-20 border-t-[4px] border-[var(--accent)]" style={{ clipPath: "polygon(0 0, 100% 80px, 100% 100%, 0 100%)" }}>
+      <section id="process" className="bg-[var(--bg)] relative z-[var(--z-content)] border-t-[4px] border-[var(--border)]" style={{ clipPath: "polygon(0 0, 100% 80px, 100% 100%, 0 100%)" }} data-surface="base">
         <div className="pt-32 pb-24">
           <div className="max-w-6xl mx-auto px-6 mb-16">
             <SplitTextReveal text="The Process" tag="h2" className="text-5xl md:text-7xl uppercase tracking-tight text-[var(--accent)]" style={{ fontFamily: "var(--font-display)" }} />
@@ -127,100 +138,89 @@ export default function Home() {
       </section>
 
       {/* ─── Barbers & Gallery ─────────────────────────────── */}
-      <section id="gallery" className="py-24 px-6 bg-[var(--accent2)] relative z-20 border-t-[4px] border-[var(--accent)]" style={{ clipPath: "polygon(0 80px, 100% 0, 100% 100%, 0 100%)" }}>
+      <section id="gallery" className="py-24 px-6 bg-[var(--surface-2)] relative z-[var(--z-content)] border-t-[4px] border-[var(--border)]" style={{ clipPath: "polygon(0 80px, 100% 0, 100% 100%, 0 100%)" }}>
         <div className="max-w-6xl mx-auto pt-16">
           <SplitTextReveal text="Our Team" tag="h2" className="text-5xl md:text-7xl mb-16 uppercase tracking-tight text-[var(--fg)]" style={{ fontFamily: "var(--font-display)" }} />
           
           <Stagger className="grid md:grid-cols-3 gap-8 mb-32">
-            {demoConfig.team.map((member) => (
-              <div key={member.name} className="p-8 bg-[var(--bg)] border-2 border-[var(--muted)]/10 hover:border-[var(--accent)] transition-colors duration-500 shadow-xl">
-                <h3 className="text-3xl uppercase tracking-tight mb-2 text-[var(--fg)]" style={{ fontFamily: "var(--font-display)" }}>{member.name}</h3>
-                <p className="text-[var(--accent)] uppercase tracking-widest text-sm mb-6 font-bold">{member.role}</p>
-                <p className="text-[var(--muted)] font-light leading-relaxed">{member.bio}</p>
+            {demoConfig.team.map((member, i) => (
+              <div key={member.name} className="bg-[var(--bg)] border-2 border-[var(--border)] hover:border-[var(--accent)] transition-colors duration-500 shadow-xl group">
+                <div className="aspect-[4/5] relative overflow-hidden">
+                  <SmartImage src={`/images/barber-${i+1}.jpg`} alt={member.name} width={600} height={800} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                </div>
+                <div className="p-8">
+                  <h3 className="text-3xl uppercase tracking-tight mb-2 text-[var(--fg)]" style={{ fontFamily: "var(--font-display)" }}>{member.name}</h3>
+                  <p className="text-[var(--accent)] uppercase tracking-widest text-sm mb-6 font-bold">{member.role}</p>
+                  <p className="text-[var(--fg-muted)] font-light leading-relaxed">{member.bio}</p>
+                </div>
               </div>
             ))}
           </Stagger>
 
           <SplitTextReveal text="The Work" tag="h2" className="text-5xl md:text-7xl mb-16 uppercase tracking-tight text-[var(--fg)]" style={{ fontFamily: "var(--font-display)" }} />
           <Stagger className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className="aspect-square bg-[var(--bg)] border-2 border-[var(--muted)]/20 relative group overflow-hidden">
-                <div className="absolute inset-0 bg-[var(--accent)]/5 group-hover:bg-[var(--accent)]/20 transition-colors duration-500" />
-                <svg className="w-1/2 h-1/2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 text-[var(--accent)] group-hover:scale-110 transition-transform duration-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                  {i % 2 === 0 ? (
-                     <path d="M7 21v-5a5 5 0 0 1 10 0v5 M4 10h16 M12 3v7" />
-                  ) : (
-                     <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z M12 8v4l3 3" />
-                  )}
-                </svg>
+            {['fade-cut.jpg', 'shave-hot-towel.jpg', 'beard-trim.jpg', 'tools-flatlay.jpg'].map((img, i) => (
+              <div key={i} className="aspect-square bg-[var(--bg)] border border-[var(--border)] relative overflow-hidden group">
+                <SmartImage src={`/images/${img}`} alt={`Gallery ${i}`} width={600} height={600} className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
               </div>
             ))}
           </Stagger>
         </div>
       </section>
 
-      {/* ─── Testimonials ──────────────────────────────────── */}
-      <section className="py-32 px-6 bg-[var(--bg)] relative z-20 border-t-[4px] border-[var(--accent)]" style={{ clipPath: "polygon(0 0, 100% 80px, 100% 100%, 0 100%)" }}>
-        <div className="max-w-4xl mx-auto text-center pt-16">
-          <SplitTextReveal text="Word on the Street" tag="h2" className="text-5xl md:text-7xl uppercase tracking-tight text-[var(--accent)] mb-20" style={{ fontFamily: "var(--font-display)" }} />
-
-          <Stagger className="flex flex-col gap-24">
-            {demoConfig.testimonials.map((t) => (
-              <Reveal key={t.name}>
-                <blockquote className="text-3xl md:text-5xl uppercase tracking-tight leading-tight text-[var(--fg)]" style={{ fontFamily: "var(--font-display)" }}>
-                  "{t.text}"
-                </blockquote>
-                <div className="mt-8 flex flex-col items-center justify-center gap-2">
-                  <div className="flex gap-1 text-[var(--accent)]">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-sm uppercase tracking-widest text-[var(--muted)] font-bold">— {t.name}</p>
-                </div>
-              </Reveal>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
       {/* ─── Location & Booking ────────────────────────────── */}
-      <section id="location" className="bg-[var(--accent2)] relative z-20 py-32 px-6 border-t-[4px] border-[var(--accent)]" style={{ clipPath: "polygon(0 80px, 100% 0, 100% 100%, 0 100%)" }}>
+      <section id="location" className="bg-[var(--inverse-bg)] relative z-[var(--z-content)] py-32 px-6 border-t-[4px] border-[var(--border)]" style={{ clipPath: "polygon(0 80px, 100% 0, 100% 100%, 0 100%)" }} data-surface="inverse">
         <div className="max-w-6xl mx-auto pt-16 grid md:grid-cols-2 gap-16">
           <div>
-             <SplitTextReveal text="Find Us" tag="h2" className="text-5xl md:text-7xl mb-8 uppercase tracking-tight text-[var(--accent)]" style={{ fontFamily: "var(--font-display)" }} />
-             <div className="mb-12">
-               <p className="text-2xl text-[var(--fg)] mb-2 uppercase tracking-wider" style={{ fontFamily: "var(--font-display)" }}>{demoConfig.brand.address}</p>
-               <p className="text-[var(--muted)] text-lg">{demoConfig.brand.phone}</p>
+             <div className="flex items-center gap-4 mb-8">
+               <SplitTextReveal text="Find Us" tag="h2" className="text-5xl md:text-7xl uppercase tracking-tight text-[var(--accent-on-light)]" style={{ fontFamily: "var(--font-display)" }} />
+               <div className={`px-4 py-2 flex items-center gap-2 border-2 ${isOpen ? 'border-[var(--accent)] text-[var(--accent)]' : 'border-[var(--accent-2)] text-[var(--accent-2)]'} uppercase font-bold text-xs tracking-widest`}>
+                 <div className={`w-2 h-2 rounded-full ${isOpen ? 'bg-[var(--accent)]' : 'bg-[var(--accent-2)]'}`} />
+                 {isOpen ? 'Open Now' : 'Closed'}
+               </div>
              </div>
              
-             <div className="space-y-4 mb-12 border-l-4 border-[var(--accent)] pl-6">
+             <div className="mb-12">
+               <p className="text-2xl text-[var(--inverse-fg)] mb-2 uppercase tracking-wider" style={{ fontFamily: "var(--font-display)" }}>{demoConfig.brand.address}</p>
+               <p className="text-[var(--inverse-fg)] text-lg">{demoConfig.brand.phone}</p>
+             </div>
+             
+             <div className="space-y-4 mb-12 border-l-4 border-[var(--accent-on-light)] pl-6">
                {demoConfig.brand.hours.map(h => (
-                 <p key={h} className="text-[var(--fg)] font-light tracking-widest uppercase">{h}</p>
+                 <p key={h} className="text-[var(--inverse-fg)] font-light tracking-widest uppercase">{h}</p>
                ))}
              </div>
 
-             <div id="booking" className="p-10 bg-[var(--accent2)] border-2 border-[var(--accent)]/30 shadow-2xl">
-               <h3 className="text-4xl uppercase tracking-tight mb-8 text-[var(--fg)]" style={{ fontFamily: "var(--font-display)" }}>Reserve a Chair</h3>
-               <ContactForm />
+             <div id="booking" className="p-10 bg-[var(--inverse-bg)] border-2 border-[var(--border)] shadow-2xl">
+               <h3 className="text-4xl uppercase tracking-tight mb-8 text-[var(--inverse-fg)]" style={{ fontFamily: "var(--font-display)" }}>Reserve a Chair</h3>
+               <div className="grid grid-cols-3 gap-2 mb-6">
+                 {['10:00', '11:00', '13:00', '14:30', '16:00', '17:30'].map(t => (
+                   <button key={t} className="p-3 border border-[var(--border)] text-[var(--inverse-fg)] hover:border-[var(--accent-on-light)] hover:text-[var(--accent-on-light)] transition-colors uppercase tracking-widest text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--inverse-fg)]">
+                     {t}
+                   </button>
+                 ))}
+               </div>
+               <MagneticButton className="w-full mt-4 p-4 bg-[var(--accent-on-light)] text-[var(--inverse-bg)] font-bold uppercase tracking-widest hover:brightness-110 transition-all text-center">
+                 Book Next Slot
+               </MagneticButton>
              </div>
           </div>
 
-          <div className="relative aspect-square md:aspect-auto bg-[#0a0a0a] border-4 border-[var(--accent)]/20 overflow-hidden shadow-2xl">
-            {/* SVG Map Block */}
-            <svg className="absolute inset-0 w-full h-full opacity-30 group-hover:opacity-50 transition-opacity" viewBox="0 0 100 100" preserveAspectRatio="none">
-              <path d="M0,20 L100,80 M20,0 L80,100 M0,50 L100,50 M50,0 L50,100 M30,0 L30,100 M70,0 L70,100 M0,30 L100,30 M0,70 L100,70" stroke="var(--accent)" strokeWidth="0.5" strokeDasharray="2,2" />
-              <circle cx="50" cy="50" r="3" fill="var(--accent)" className="animate-pulse" />
-              <path d="M50,50 L50,40 C50,30 60,30 60,20" stroke="var(--accent)" strokeWidth="1" fill="none" />
-            </svg>
+          <div className="relative aspect-square md:aspect-auto border-4 border-[var(--border)] overflow-hidden shadow-2xl">
+            <SmartImage src="/images/storefront.jpg" alt="Storefront" width={1000} height={1000} className="w-full h-full object-cover grayscale" />
           </div>
         </div>
       </section>
 
       {/* ─── Footer ────────────────────────────────────────── */}
-      <div className="relative z-20 border-t-[4px] border-[var(--accent)]">
+      <div className="relative z-[var(--z-content)] border-t-[4px] border-[var(--border)] bg-[var(--bg)]" data-surface="base">
+        <div className="max-w-6xl mx-auto px-6 py-12 flex justify-between items-center border-b border-[var(--border)] mb-12">
+           <h3 className="text-2xl uppercase tracking-widest font-bold text-[var(--fg)]">Loyalty Program</h3>
+           <div className="flex gap-2">
+             {[...Array(9)].map((_,i) => <div key={i} className="w-8 h-8 rounded-full border-2 border-[var(--border)]" />)}
+             <div className="w-8 h-8 rounded-full bg-[var(--accent)] flex items-center justify-center text-[var(--on-accent)] font-bold text-xs">FREE</div>
+           </div>
+        </div>
         <Footer
           brand={demoConfig.brand.name}
           links={[
@@ -230,6 +230,6 @@ export default function Home() {
           ]}
         />
       </div>
-    </>
+    </main>
   );
 }

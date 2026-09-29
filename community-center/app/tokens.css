@@ -1,0 +1,47 @@
+@layer base {
+  :root {
+    color-scheme: light;
+    
+    /* Semantic Colors */
+    --bg: #FBF6EC;
+    --surface: #DCE9DF;
+    --surface-2: #F3E9D8;
+    --fg: #1F2A28;
+    --fg-muted: #4A5A56;
+    --accent: #236B67;
+    --on-accent: #FFFFFF;
+    --accent-2: #B98A3E;
+    --border: #DCE9DF;
+    --inverse-bg: #1F2A28;
+    --inverse-fg: #FBF6EC;
+    --scrim: #1F2A28;
+
+    /* Z-Index Scale */
+    --z-base: 0;
+    --z-content: 10;
+    --z-sticky: 100;
+    --z-nav: 200;
+    --z-drawer: 300;
+    --z-modal: 400;
+    --z-cursor: 500;
+  }
+
+  [data-surface="base"] { background: var(--bg); color: var(--fg); }
+  [data-surface="raised"] { background: var(--surface); color: var(--fg); }
+  [data-surface="inverse"] { 
+    background: var(--inverse-bg); 
+    color: var(--inverse-fg); 
+    --fg: var(--inverse-fg); 
+    --fg-muted: var(--inverse-fg); 
+  }
+  [data-surface="accent"] { 
+    background: var(--accent); 
+    color: var(--on-accent); 
+    --fg: var(--on-accent); 
+    --fg-muted: var(--on-accent); 
+  }
+
+  .scrim-bottom {
+    background: linear-gradient(to top, color-mix(in srgb, var(--scrim) 80%, transparent), transparent 60%);
+  }
+}

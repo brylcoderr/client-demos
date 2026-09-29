@@ -1,0 +1,67 @@
+{
+  "hero.jpg": {
+    "id": 5524237,
+    "source": "pexels",
+    "alt": "Spacious modern home's exterior with string lights illuminating a twilight setting, featuring lush greenery."
+  },
+  "listing-1.jpg": {
+    "id": 19516616,
+    "source": "pexels",
+    "alt": "Contemporary brick townhouse facade with neat hedge under clear blue sky."
+  },
+  "listing-2.jpg": {
+    "id": 7168052,
+    "source": "pexels",
+    "alt": "Stylish living room with dining area, featuring modern decor and elegant furnishings."
+  },
+  "listing-3.jpg": {
+    "id": 7587864,
+    "source": "pexels",
+    "alt": "Contemporary blue kitchen featuring a sleek granite island and modern decor."
+  },
+  "listing-4.jpg": {
+    "id": 18729449,
+    "source": "pexels",
+    "alt": "Cobbled street lined with classic townhouses in a quiet London residential district."
+  },
+  "listing-5.jpg": {
+    "id": 8143681,
+    "source": "pexels",
+    "alt": "Elegant poolside setup with a modern patio, ideal for summer relaxation."
+  },
+  "listing-6.jpg": {
+    "id": 36411723,
+    "source": "pexels",
+    "alt": "Cozy bedroom interior featuring modern decor and neutral color palette for home staging."
+  },
+  "agent-1.jpg": {
+    "id": 30781748,
+    "source": "pexels",
+    "alt": "Portrait of a smiling professional woman in a green suit standing indoors against a patterned wall."
+  },
+  "agent-2.jpg": {
+    "id": 30781748,
+    "source": "pexels",
+    "alt": "Portrait of a smiling professional woman in a green suit standing indoors against a patterned wall."
+  },
+  "hood-1.jpg": {
+    "id": 34410041,
+    "source": "pexels",
+    "alt": "Aerial view of Cape Town's residential streets with modern architecture during daytime."
+  },
+  "hood-2.jpg": {
+    "id": 5800214,
+    "source": "pexels",
+    "alt": "Drone view of modern city park area with winding roads surrounded by greenery and cars parked nearby located under power lines"
+  },
+  "hood-3.jpg": {
+    "id": 13520671,
+    "source": "pexels",
+    "alt": "Serene city waterfront with historic architecture reflecting on calm water."
+  },
+  "hood-4.jpg": {
+    "id": 33476066,
+    "source": "pexels",
+    "alt": "Quaint street scene in Gatlinburg, Tennessee with shops and distant mountains."
+  }
+}

@@ -1,0 +1,12 @@
+[
+  { "file": "hero.jpg", "query": "community gathering warm", "orientation": "landscape", "minWidth": 1600, "must": ["people"], "avoid": ["protest", "political rally"] },
+  { "file": "program-1.jpg", "query": "youth education classroom", "orientation": "landscape", "minWidth": 1600, "must": ["youth", "education"], "avoid": ["protest", "political rally"] },
+  { "file": "program-2.jpg", "query": "food pantry volunteers", "orientation": "landscape", "minWidth": 1600, "must": ["food", "volunteer"], "avoid": ["protest", "political rally"] },
+  { "file": "program-3.jpg", "query": "senior care community", "orientation": "landscape", "minWidth": 1600, "must": ["senior"], "avoid": ["protest", "political rally"] },
+  { "file": "program-4.jpg", "query": "community garden", "orientation": "landscape", "minWidth": 1600, "must": ["garden"], "avoid": ["protest", "political rally"] },
+  { "file": "pattern.png", "query": "islamic geometric pattern", "orientation": "landscape", "minWidth": 1600, "must": ["pattern"], "avoid": ["protest", "political rally"] },
+  { "file": "team-1.jpg", "query": "community leader portrait", "orientation": "portrait", "minWidth": 1000, "must": ["portrait"], "avoid": ["protest", "political rally"] },
+  { "file": "team-2.jpg", "query": "volunteer portrait", "orientation": "portrait", "minWidth": 1000, "must": ["portrait"], "avoid": ["protest", "political rally"] },
+  { "file": "team-3.jpg", "query": "teacher portrait", "orientation": "portrait", "minWidth": 1000, "must": ["portrait"], "avoid": ["protest", "political rally"] },
+  { "file": "team-4.jpg", "query": "organizer portrait", "orientation": "portrait", "minWidth": 1000, "must": ["portrait"], "avoid": ["protest", "political rally"] }
+]

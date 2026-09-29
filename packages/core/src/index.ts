@@ -22,6 +22,7 @@ export { createTheme } from "./theme/createTheme";
 export type { DemoConfig } from "./config/types";
 
 // ─── UI Components ──────────────────────────────────────────
+export { Section } from "./ui/Section";
 export { StickyNav } from "./ui/StickyNav";
 export { SplitTextReveal } from "./ui/SplitTextReveal";
 export { Reveal } from "./ui/Reveal";
@@ -39,3 +40,15 @@ export { ContactForm } from "./ui/ContactForm";
 export { CustomCursor } from "./ui/CustomCursor";
 export { MagneticButton } from "./ui/MagneticButton";
 export { Footer } from "./ui/Footer";
+export { SmartImage } from "./ui/SmartImage";
+export { DiagonalWipe } from "./ui/DiagonalWipe";
+export { TextScramble } from "./ui/TextScramble";
+export { VelocitySkew } from "./ui/VelocitySkew";
+export { MapBlock } from "./ui/MapBlock";
+export { Timeline } from "./ui/Timeline";
+export { PricingTiers } from "./ui/PricingTiers";
+export { BookingWidget } from "./ui/BookingWidget";
+export { StickyCTABar } from "./ui/StickyCTABar";
+export { ReduceMotionToggle } from "./ui/ReduceMotionToggle";
+export { ScheduleTable } from "./ui/ScheduleTable";
+export { Lightbox } from "./ui/Lightbox";

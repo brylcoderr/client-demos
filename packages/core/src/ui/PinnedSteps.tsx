@@ -58,10 +58,11 @@ export function PinnedSteps({ steps, className }: { steps: Step[]; className?: s
           className="pinned-step-card max-w-3xl mx-auto mb-8 p-8 md:p-12 border border-[var(--muted)]/20 bg-[var(--bg)] shadow-2xl"
           style={{ borderRadius: "var(--radius)" }}
         >
-          <h3 className="text-2xl md:text-4xl mb-4" style={{ fontFamily: "var(--font-display)", color: "var(--accent)" }}>
+          <h3 className="text-2xl md:text-4xl mb-4 text-[var(--fg)]" style={{ fontFamily: "var(--font-display)" }}>
+            <span className="text-[var(--accent)] mr-2 inline-block w-4 h-4 bg-[var(--accent)] rounded-full border border-[var(--fg)]" aria-hidden="true" />
             {step.title}
           </h3>
-          <p className="text-[var(--muted)] text-base md:text-lg leading-relaxed">{step.description}</p>
+          <p className="text-[var(--fg-muted)] text-base md:text-lg leading-relaxed">{step.description}</p>
         </div>
       ))}
     </div>

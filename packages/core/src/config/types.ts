@@ -17,9 +17,11 @@ export interface DemoConfig {
   theme: {
     bg: string;
     fg: string;
-    muted: string;
+    muted?: string;
     accent: string;
-    accent2: string;
+    accent2?: string;
+    surface?: string;
+    surface2?: string;
     radius: string;
     fontDisplay: string;
     fontBody: string;
@@ -29,4 +31,6 @@ export interface DemoConfig {
   testimonials: Array<{ name: string; text: string; rating: number }>;
   faqs: Array<{ question: string; answer: string }>;
   stats: Array<{ label: string; value: string }>;
+  images?: { hero?: string; gallery?: string[]; team?: string[] };
+  extra?: Record<string, unknown>;
 }

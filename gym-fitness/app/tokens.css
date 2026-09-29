@@ -1,0 +1,54 @@
+:root {
+  color-scheme: dark;
+  --bg: #0A0A0A;
+  --surface: #2B2B2B;
+  --surface-2: #1A1A1A;
+  --fg: #FFFFFF;
+  --fg-muted: #B8B8B8;
+  --accent: #C6FF00;
+  --on-accent: #0A0A0A;
+  --accent-2: #FF5A1F;
+  --border: #C6FF00;
+  --inverse-bg: #C6FF00;
+  --inverse-fg: #0A0A0A;
+  --scrim: #0A0A0A;
+
+  --z-base: 0;
+  --z-content: 10;
+  --z-sticky: 100;
+  --z-nav: 200;
+  --z-drawer: 300;
+  --z-modal: 400;
+  --z-cursor: 500;
+}
+
+[data-accent="orange"] {
+  --accent: #FF5A1F;
+  --border: #FF5A1F;
+  --inverse-bg: #FF5A1F;
+  --accent-2: #C6FF00;
+}
+
+/* extra-pairs: accent/bg, accent/surface, accent-2/bg */
+
+[data-surface="base"] { background: var(--bg); color: var(--fg); }
+[data-surface="raised"] { background: var(--surface); color: var(--fg); }
+[data-surface="inverse"] { background: var(--inverse-bg); color: var(--inverse-fg); --fg: var(--inverse-fg); --fg-muted: var(--inverse-fg); }
+[data-surface="accent"] { background: var(--accent); color: var(--on-accent); --fg: var(--on-accent); --fg-muted: var(--on-accent); }
+
+.scrim-bottom { background: linear-gradient(to top, color-mix(in srgb, var(--scrim) 80%, transparent), transparent 60%); }
+
+@theme {
+  --color-*: initial;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-accent-2: var(--accent-2);
+  --color-border: var(--border);
+  --color-inverse-bg: var(--inverse-bg);
+  --color-inverse-fg: var(--inverse-fg);
+}

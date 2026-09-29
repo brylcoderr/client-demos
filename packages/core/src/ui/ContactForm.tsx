@@ -70,7 +70,7 @@ export function ContactForm({ className }: { className?: string }) {
 
   const inputClasses = (name: string) =>
     `w-full bg-transparent border-b ${
-      fields[name].touched && fields[name].error ? "border-red-500" : "border-[var(--muted)]/30 focus:border-[var(--accent)]"
+      fields[name].touched && fields[name].error ? "border-[var(--fg)]" : "border-[var(--fg-muted)]/30 focus:border-[var(--accent)]"
     } py-3 px-1 outline-none transition-colors duration-300 text-[var(--fg)]`;
 
   return (
@@ -82,7 +82,7 @@ export function ContactForm({ className }: { className?: string }) {
 
       {(["Name", "Email", "Message"] as const).map((name) => (
         <div key={name} className="flex flex-col gap-1">
-          <label htmlFor={`cf-${name}`} className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
+          <label htmlFor={`cf-${name}`} className="text-xs uppercase tracking-[0.2em] text-[var(--fg-muted)]">
             {name}
           </label>
           {name === "Message" ? (
@@ -125,7 +125,7 @@ export function ContactForm({ className }: { className?: string }) {
         type="submit"
         disabled={status === "submitting" || status === "success"}
         whileTap={{ scale: 0.97 }}
-        className="mt-4 min-h-[44px] bg-[var(--accent)] text-[var(--bg)] font-semibold uppercase tracking-widest text-sm py-4 px-8 disabled:opacity-50 hover:opacity-90 transition-opacity"
+        className="mt-4 min-h-[44px] bg-[var(--accent)] text-[var(--on-accent)] font-semibold uppercase tracking-widest text-sm py-4 px-8 disabled:opacity-50 hover:opacity-90 transition-opacity"
         style={{ borderRadius: "var(--radius)" }}
       >
         {status === "idle" && "Send Message"}
@@ -139,7 +139,7 @@ export function ContactForm({ className }: { className?: string }) {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center text-[var(--accent)] text-sm"
+            className="text-center text-[var(--fg)] font-bold text-sm"
           >
             Thanks! We&apos;ll be in touch shortly.
           </motion.p>

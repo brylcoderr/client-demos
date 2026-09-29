@@ -1,0 +1,75 @@
+@theme {
+  --color-*: initial;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-accent-2: var(--accent-2);
+  --color-border: var(--border);
+  --color-inverse-bg: var(--inverse-bg);
+  --color-inverse-fg: var(--inverse-fg);
+  --color-scrim: var(--scrim);
+  --color-rule: var(--rule);
+  
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+}
+
+:root {
+  color-scheme: light;
+  
+  --bg: #FAFAFA;
+  --surface: #F0F0EE;
+  --surface-2: #E4E4E1;
+  --fg: #111111;
+  --fg-muted: #5C5C5C;
+  --accent: #B84D27;
+  --on-accent: #FFFFFF;
+  --accent-2: #8A8A8A;
+  --border: #8A8A8A;
+  --inverse-bg: #111111;
+  --inverse-fg: #FAFAFA;
+  --scrim: #111111;
+  --rule: #8A8A8A;
+  
+  /* Z-index scale */
+  --z-base: 0;
+  --z-content: 10;
+  --z-sticky: 100;
+  --z-nav: 200;
+  --z-drawer: 300;
+  --z-modal: 400;
+  --z-cursor: 500;
+}
+
+[data-surface="base"] {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+[data-surface="raised"] {
+  background-color: var(--surface);
+  color: var(--fg);
+}
+
+[data-surface="inverse"] {
+  background-color: var(--inverse-bg);
+  color: var(--inverse-fg);
+  --fg: var(--inverse-fg);
+  --fg-muted: var(--inverse-fg);
+}
+
+[data-surface="accent"] {
+  background-color: var(--accent);
+  color: var(--on-accent);
+  --fg: var(--on-accent);
+  --fg-muted: var(--on-accent);
+}
+
+.scrim-bottom {
+  background: linear-gradient(to top, color-mix(in srgb, var(--scrim) 80%, transparent), transparent 60%);
+}

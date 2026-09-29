@@ -1,7 +1,10 @@
 @import "tailwindcss";
-@import "@client-demos/core/src/theme/tokens.css";
+@import "./tokens.css";
 
 /* ─── Base reset ──────────────────────────────────────────── */
+html, body {
+  overflow-x: clip;
+}
 body {
   background-color: var(--bg);
   color: var(--fg);

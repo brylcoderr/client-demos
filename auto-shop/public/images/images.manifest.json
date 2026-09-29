@@ -1,0 +1,9 @@
+[
+  { "file": "hero-wheel.jpg", "query": "car wheel brake disc close up", "orientation": "landscape", "minWidth": 1600, "must": ["wheel"], "avoid": ["dealership", "racing", "cartoon"] },
+  { "file": "collision-a.jpg", "query": "car dent repair", "orientation": "landscape", "minWidth": 1600, "must": ["car", "repair"], "avoid": ["dealership", "racing", "cartoon"] },
+  { "file": "collision-b.jpg", "query": "car body repair auto shop", "orientation": "landscape", "minWidth": 1600, "must": ["car", "repair"], "avoid": ["dealership", "racing", "cartoon"] },
+  { "file": "paint-booth.jpg", "query": "auto body paint booth", "orientation": "landscape", "minWidth": 1600, "must": ["paint"], "avoid": ["dealership", "racing", "cartoon"] },
+  { "file": "mechanic.jpg", "query": "auto mechanic portrait garage", "orientation": "portrait", "minWidth": 1000, "must": ["mechanic"], "avoid": ["dealership", "racing", "cartoon"] },
+  { "file": "shop-interior.jpg", "query": "auto repair shop interior", "orientation": "landscape", "minWidth": 1600, "must": ["shop", "garage"], "avoid": ["dealership", "racing", "cartoon"] },
+  { "file": "tires.jpg", "query": "tire shop stacked tires", "orientation": "landscape", "minWidth": 1600, "must": ["tire"], "avoid": ["dealership", "racing", "cartoon"] }
+]

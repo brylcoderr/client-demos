@@ -31,7 +31,7 @@ export function StickyNav({ logo, links }: { logo: React.ReactNode; links: NavLi
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 mix-blend-difference px-6 py-5 flex justify-between items-center text-[var(--fg)]">
+      <nav aria-label="Main Navigation" className="fixed top-0 left-0 w-full z-50 mix-blend-difference px-6 py-5 flex justify-between items-center text-[var(--fg)]">
         <div className="text-xl font-bold tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
           {logo}
         </div>

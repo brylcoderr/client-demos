@@ -1,0 +1,62 @@
+[
+  {
+    "file": "hero-lifting.jpg",
+    "query": "barbell deadlift gym",
+    "must": ["barbell", "gym"],
+    "avoid": ["yoga", "logo"],
+    "minWidth": 1600
+  },
+  {
+    "file": "boxing-bag.jpg",
+    "query": "boxing heavy bag gym",
+    "must": ["boxing"],
+    "minWidth": 1600
+  },
+  {
+    "file": "battle-ropes.jpg",
+    "query": "battle ropes workout",
+    "must": ["rope"],
+    "minWidth": 1600
+  },
+  {
+    "file": "trainer-1.jpg",
+    "query": "personal trainer portrait gym",
+    "must": ["gym"],
+    "avoid": ["yoga"],
+    "minWidth": 1000
+  },
+  {
+    "file": "trainer-2.jpg",
+    "query": "fitness coach portrait",
+    "must": ["gym"],
+    "avoid": ["yoga"],
+    "minWidth": 1000
+  },
+  {
+    "file": "trainer-3.jpg",
+    "query": "boxing coach portrait",
+    "must": ["gym"],
+    "avoid": ["yoga"],
+    "minWidth": 1000
+  },
+  {
+    "file": "trainer-4.jpg",
+    "query": "personal trainer portrait gym",
+    "must": ["gym"],
+    "avoid": ["yoga"],
+    "minWidth": 1000
+  },
+  {
+    "file": "class-group.jpg",
+    "query": "group fitness class",
+    "must": ["class", "group"],
+    "minWidth": 1600
+  },
+  {
+    "file": "gym-floor.jpg",
+    "query": "modern gym interior",
+    "must": ["gym"],
+    "avoid": ["hotel", "spa"],
+    "minWidth": 1600
+  }
+]

@@ -25,7 +25,7 @@ export interface DigitalAgencyConfig extends DemoConfig {
   }>;
 }
 
-export const config: DigitalAgencyConfig = {
+export const demoConfig: DigitalAgencyConfig = {
   brand: {
     name: "Pulse Collective",
     tagline: "We build digital experiences that defy gravity.",

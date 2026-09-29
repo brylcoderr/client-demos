@@ -3,6 +3,7 @@
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { getToken } from "../../lib/token";
 
 export function HeroScales() {
   const groupRef = useRef<THREE.Group>(null);
@@ -11,7 +12,7 @@ export function HeroScales() {
   
   // Wireframe material for the classic, restrained architectural look
   const material = useMemo(() => new THREE.LineBasicMaterial({
-    color: "#B39B5E",
+    color: typeof window !== 'undefined' ? getToken('--accent') || 'gold' : 'gold',
     transparent: true,
     opacity: 0.4,
   }), []);
@@ -53,8 +54,8 @@ export function HeroScales() {
   return (
     <>
       <ambientLight intensity={0.2} />
-      <directionalLight position={[5, 10, 5]} intensity={1.5} color="#F8F4EA" />
-      <directionalLight position={[-5, 5, -5]} intensity={0.5} color="#B39B5E" />
+      <directionalLight position={[5, 10, 5]} intensity={1.5} color={typeof window !== 'undefined' ? getToken('--accent') || 'gold' : 'gold'} />
+      <directionalLight position={[-5, 5, -5]} intensity={0.5} color={typeof window !== 'undefined' ? getToken('--accent') || 'gold' : 'gold'} />
       
       <group ref={groupRef} position={[0, -1, 0]}>
         {/* Base */}

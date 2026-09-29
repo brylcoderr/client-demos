@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-accent-2: var(--accent-2);
+  --color-border: var(--border);
+  --color-inverse-bg: var(--inverse-bg);
+  --color-inverse-fg: var(--inverse-fg);
+  --color-scrim: var(--scrim);
+  --color-accent-on-light: var(--accent-on-light);
+
+  --font-display: var(--font-display-var);
+  --font-body: var(--font-body-var);
+}
+
+:root {
+  color-scheme: dark;
+  
+  /* Z-index scale */
+  --z-base: 0;
+  --z-content: 10;
+  --z-sticky: 100;
+  --z-nav: 200;
+  --z-drawer: 300;
+  --z-modal: 400;
+  --z-cursor: 500;
+  
+  /* jewelry (default) */
+  --bg: #0A0A0A;
+  --surface: #151515;
+  --surface-2: #1F1F1F;
+  --fg: #F7F1E5;
+  --fg-muted: #B9B2A3;
+  --accent: #D4AF37;
+  --on-accent: #0A0A0A;
+  --accent-2: #F7F1E5;
+  --border: #D4AF37;
+  --inverse-bg: #F7F1E5;
+  --inverse-fg: #0A0A0A;
+  --scrim: #0A0A0A;
+  --accent-on-light: #7A5F10;
+  --font-display-var: var(--font-cormorant);
+  --font-body-var: var(--font-inter);
+}
+
+html[data-store="pet"] {
+  --bg: #FFF9EE;
+  --surface: #FFE9C7;
+  --surface-2: #FFD9A0;
+  --fg: #1F2A44;
+  --fg-muted: #4A5470;
+  --accent: #1A5FD0;
+  --on-accent: #FFFFFF;
+  --accent-2: #FF8A3D;
+  --border: #FFD9A0;
+  --inverse-bg: #1F2A44;
+  --inverse-fg: #FFF9EE;
+  --scrim: #1F2A44;
+  --font-display-var: var(--font-fredoka);
+  --font-body-var: var(--font-inter);
+}
+
+html[data-store="cards"] {
+  --bg: #08080F;
+  --surface: #14141F;
+  --surface-2: #1E1E2C;
+  --fg: #F2F2FA;
+  --fg-muted: #B0B0C8;
+  --accent: #22D3EE;
+  --on-accent: #08080F;
+  --accent-2: #F0ABFC;
+  --border: #22D3EE;
+  --inverse-bg: #F2F2FA;
+  --inverse-fg: #08080F;
+  --scrim: #08080F;
+  --font-display-var: var(--font-space-grotesk);
+  --font-body-var: var(--font-space-grotesk);
+}
+
+html[data-store="fashion"] {
+  --bg: #F5F5F3;
+  --surface: #EAEAE6;
+  --surface-2: #DCDCD6;
+  --fg: #111111;
+  --fg-muted: #555555;
+  --accent: #111111;
+  --on-accent: #F5F5F3;
+  --accent-2: #C8102E;
+  --border: #DCDCD6;
+  --inverse-bg: #111111;
+  --inverse-fg: #F5F5F3;
+  --scrim: #111111;
+  --font-display-var: var(--font-space-grotesk);
+  --font-body-var: var(--font-space-grotesk);
+}
+
+[data-surface="base"] { background: var(--bg); color: var(--fg); }
+[data-surface="raised"] { background: var(--surface); color: var(--fg); }
+[data-surface="inverse"] { background: var(--inverse-bg); color: var(--inverse-fg); --fg: var(--inverse-fg); --fg-muted: var(--inverse-fg); }
+[data-surface="accent"] { background: var(--accent); color: var(--on-accent); --fg: var(--on-accent); --fg-muted: var(--on-accent); }
+
+.scrim-bottom {
+  background: linear-gradient(to top, color-mix(in srgb, var(--scrim) 80%, transparent), transparent 60%);
+}

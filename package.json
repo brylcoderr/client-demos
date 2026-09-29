@@ -15,9 +15,14 @@
     "dev:digital-agency": "pnpm --filter digital-agency dev",
     "dev:auto-shop": "pnpm --filter auto-shop dev",
     "dev:community-center": "pnpm --filter community-center dev",
-    "build:all": "pnpm -r --workspace-concurrency=1 run build"
+    "build:all": "pnpm -r --workspace-concurrency=1 run build",
+    "lint:colors": "node scripts/lint-colors.mjs",
+    "verify": "node scripts/verify.mjs"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "playwright": "^1.63.0",
     "typescript": "^5.7.0"
   }
 }

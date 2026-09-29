@@ -1,0 +1,64 @@
+[
+  {
+    "file": "hero-framing.jpg",
+    "query": "house framing construction",
+    "must": ["framing", "lumber"],
+    "avoid": ["skyscraper", "crane"],
+    "minWidth": 1600
+  },
+  {
+    "file": "roof-install.jpg",
+    "query": "roofing shingles installation",
+    "must": ["roof"],
+    "minWidth": 1600
+  },
+  {
+    "file": "kitchen-a.jpg",
+    "query": "kitchen remodel",
+    "must": ["kitchen"],
+    "avoid": ["restaurant"],
+    "minWidth": 1600
+  },
+  {
+    "file": "kitchen-b.jpg",
+    "query": "modern kitchen renovation",
+    "must": ["kitchen"],
+    "avoid": ["restaurant"],
+    "minWidth": 1600
+  },
+  {
+    "file": "concrete-pour.jpg",
+    "query": "concrete foundation pour",
+    "must": ["concrete"],
+    "minWidth": 1600
+  },
+  {
+    "file": "crew.jpg",
+    "query": "construction crew hard hats",
+    "must": ["hard hat"],
+    "minWidth": 1600
+  },
+  {
+    "file": "finished-home.jpg",
+    "query": "modern farmhouse exterior dusk",
+    "must": ["house"],
+    "avoid": ["apartment block"],
+    "minWidth": 1600
+  },
+  {
+    "file": "blueprint.jpg",
+    "query": "blueprints hard hat table",
+    "must": ["blueprint"],
+    "minWidth": 1600
+  },
+  {
+    "file": "project-1.jpg",
+    "query": "home addition construction",
+    "minWidth": 1600
+  },
+  {
+    "file": "project-2.jpg",
+    "query": "deck build carpentry",
+    "minWidth": 1600
+  }
+]

@@ -49,7 +49,7 @@ function FiberSystem() {
   const uniforms = useMemo(() => ({
     uTime: { value: 0 },
     uMouse: { value: new THREE.Vector2(0, 0) },
-    uColor: { value: new THREE.Color("#C9A96E") } // The exact website gold
+    uColor: { value: new THREE.Color("var(--accent)") } // The exact website gold
   }), []);
 
   useFrame((state) => {

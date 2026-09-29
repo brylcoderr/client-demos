@@ -5,7 +5,8 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
 import { useDeviceTier } from "@client-demos/core";
-import { config } from "../../demo.config";
+import { demoConfig as config } from "../../demo.config";
+import { getToken } from "../../lib/token";
 
 function FloatingParticles({ reducedMotion }: { reducedMotion: boolean }) {
   const count = 300;
@@ -32,7 +33,7 @@ function FloatingParticles({ reducedMotion }: { reducedMotion: boolean }) {
     <Points ref={pointsRef} positions={positions} stride={3}>
       <PointMaterial 
         transparent 
-        color={config.theme.accent} 
+        color={getToken("--accent")} 
         size={0.15} 
         sizeAttenuation={true} 
         depthWrite={false} 
