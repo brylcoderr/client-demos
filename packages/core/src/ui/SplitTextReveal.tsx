@@ -32,9 +32,10 @@ interface SplitTextRevealProps {
   text: string;
   tag?: "h1" | "h2" | "h3" | "h4" | "p" | "span";
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export function SplitTextReveal({ text, tag: Tag = "h2", className = "" }: SplitTextRevealProps) {
+export function SplitTextReveal({ text, tag: Tag = "h2", className = "", style = {} }: SplitTextRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGsapContext(() => {
@@ -61,7 +62,7 @@ export function SplitTextReveal({ text, tag: Tag = "h2", className = "" }: Split
 
   return (
     <div ref={containerRef}>
-      <Tag className={`${className} flex flex-wrap`} style={{ fontFamily: "var(--font-display)" }}>
+      <Tag className={`${className} flex flex-wrap`} style={{ fontFamily: "var(--font-display)", ...style }}>
         {words.map((word, i) => (
           <span key={i} className="overflow-hidden inline-block mr-[0.3em] pb-1">
             <span className="stl-word-inner inline-block">{word}</span>

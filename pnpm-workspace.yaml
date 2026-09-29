@@ -1,6 +1,18 @@
 packages:
   - "packages/*"
-  - "Demo*"
+  - "demo-template"
+  - "spa-salon"
+  - "barbershop"
+  - "gym-fitness"
+  - "law-firm"
+  - "construction"
+  - "architecture"
+  - "restaurant"
+  - "storefront"
+  - "real-estate"
+  - "digital-agency"
+  - "auto-shop"
+  - "community-center"
   - "color-lab-hair-salon"
 minimumReleaseAgeExclude:
   - '@img/sharp-linux-arm@0.35.5'
