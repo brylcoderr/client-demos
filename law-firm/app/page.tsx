@@ -57,13 +57,13 @@ export default function Home() {
             style={{ fontFamily: "var(--font-display)" }}
           />
 
-          <Reveal delay={0.8} duration={1.5}>
+          <Reveal delay={0.8}>
             <p className="mt-8 text-xl md:text-2xl text-[var(--accent)] font-light tracking-widest uppercase">
               {demoConfig.brand.tagline}
             </p>
           </Reveal>
           
-          <Reveal delay={1.2} duration={1.5}>
+          <Reveal delay={1.2}>
             <div className="mt-12 pointer-events-auto flex flex-col md:flex-row items-center gap-6">
               <a href="#contact" className="px-10 py-4 bg-[var(--accent)] text-[var(--bg)] text-sm uppercase tracking-widest font-medium hover:bg-[var(--fg)] transition-colors duration-500">
                 Free Consultation
@@ -80,7 +80,7 @@ export default function Home() {
       <section id="practice-areas" className="py-32 px-6 bg-[var(--accent2)] relative z-20 border-t border-[var(--accent)]/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-24">
-            <Reveal duration={1.2}>
+            <Reveal>
               <h2 className="text-4xl md:text-6xl text-[var(--fg)] mb-6" style={{ fontFamily: "var(--font-display)" }}>
                 Practice Areas
               </h2>
@@ -110,11 +110,9 @@ export default function Home() {
               <div key={stat.label} className="flex flex-col items-center">
                 <Counter
                   target={parseInt(stat.value.replace(/\D/g, ""), 10) || 0}
-                  suffix={stat.value.replace(/[\d.]/g, "")}
-                  prefix={stat.value.includes("$") ? "$" : ""}
+                  suffix={(stat.value.includes("$") ? "$" : "") + stat.value.replace(/[\d.]/g, "")}
                   label={stat.label}
                   className="text-5xl md:text-6xl text-[var(--accent)] mb-4"
-                  style={{ fontFamily: "var(--font-display)" }}
                 />
                 <p className="text-sm uppercase tracking-widest text-[var(--muted)]">{stat.label}</p>
               </div>
@@ -127,7 +125,7 @@ export default function Home() {
       <section id="attorneys" className="py-32 px-6 bg-[var(--accent2)] relative z-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-24">
-            <Reveal duration={1.2}>
+            <Reveal>
               <h2 className="text-4xl md:text-6xl text-[var(--fg)] mb-6" style={{ fontFamily: "var(--font-display)" }}>
                 Our Attorneys
               </h2>
@@ -155,7 +153,7 @@ export default function Home() {
       {/* ─── Pinned Process ────────────────────────────────── */}
       <section id="process" className="bg-[var(--bg)] relative z-20 pt-32 pb-16">
         <div className="max-w-6xl mx-auto px-6 mb-24 text-center">
-          <Reveal duration={1.2}>
+          <Reveal>
             <h2 className="text-4xl md:text-6xl text-[var(--fg)] mb-6" style={{ fontFamily: "var(--font-display)" }}>
               Our Approach
             </h2>
@@ -176,7 +174,7 @@ export default function Home() {
       <section className="py-32 px-6 bg-[var(--accent2)] relative z-20">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
-            <Reveal duration={1.2}>
+            <Reveal>
               <h2 className="text-4xl md:text-6xl text-[var(--fg)] mb-6" style={{ fontFamily: "var(--font-display)" }}>
                 Common Inquiries
               </h2>
@@ -191,7 +189,7 @@ export default function Home() {
       <section className="py-32 px-6 bg-[var(--bg)] relative z-20">
         <div className="max-w-5xl mx-auto text-center">
           <div className="mb-24">
-            <Reveal duration={1.2}>
+            <Reveal>
               <h2 className="text-4xl md:text-6xl text-[var(--fg)] mb-6" style={{ fontFamily: "var(--font-display)" }}>
                 Client Perspectives
               </h2>
@@ -201,7 +199,7 @@ export default function Home() {
 
           <Stagger className="flex flex-col gap-24">
             {demoConfig.testimonials.map((t) => (
-              <Reveal key={t.name} duration={1.5}>
+              <Reveal key={t.name}>
                 <blockquote className="text-2xl md:text-4xl leading-relaxed text-[var(--fg)] italic mb-8" style={{ fontFamily: "var(--font-display)" }}>
                   "{t.text}"
                 </blockquote>
@@ -216,7 +214,7 @@ export default function Home() {
       <section id="contact" className="py-32 px-6 bg-[var(--accent2)] relative z-20 border-t border-[var(--accent)]/20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
           <div>
-            <Reveal duration={1.2}>
+            <Reveal>
               <h2 className="text-4xl md:text-6xl text-[var(--fg)] mb-6" style={{ fontFamily: "var(--font-display)" }}>
                 Request a Consultation
               </h2>

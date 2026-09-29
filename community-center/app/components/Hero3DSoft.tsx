@@ -19,7 +19,7 @@ function FloatingParticles({ reducedMotion }: { reducedMotion: boolean }) {
     return arr;
   }, []);
 
-  const pointsRef = useRef<THREE.Points>(null);
+  const pointsRef = useRef<any>(null);
 
   useFrame((state) => {
     if (!pointsRef.current || reducedMotion) return;

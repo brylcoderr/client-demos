@@ -132,8 +132,7 @@ export function Hero3D() {
           rotation={[0, 0, 0]} 
           polar={[-0.4, 0.2]} 
           azimuth={[-1, 0.75]} 
-          config={{ mass: 2, tension: 400 }} 
-          snap={{ mass: 4, tension: 400 }}
+          snap={true}
         >
           {config.storeType === "jewelry" && <Gem />}
           {config.storeType === "cards" && <HoloCard />}

@@ -18,7 +18,7 @@ export function ScrambleText({
   style = {}
 }: {
   text: string;
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: any;
   className?: string;
   style?: React.CSSProperties;
 }) {

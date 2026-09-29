@@ -74,7 +74,7 @@ function SpeedLines() {
     return arr;
   }, []);
 
-  const pointsRef = useRef<THREE.Points>(null);
+  const pointsRef = useRef<any>(null);
   const velocity = useScrollVelocity();
 
   useFrame((state, delta) => {

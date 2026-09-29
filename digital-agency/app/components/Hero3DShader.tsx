@@ -11,9 +11,9 @@ import { useDeviceTier } from "@client-demos/core";
 const BlobMaterial = shaderMaterial(
   {
     uTime: 0,
-    uColor1: new THREE.Color("#7C3AED"),
-    uColor2: new THREE.Color("#22D3EE"),
-    uColor3: new THREE.Color("#F0ABFC"),
+    uColor1: new THREE.Color("#7C3AED") as any,
+    uColor2: new THREE.Color("#22D3EE") as any,
+    uColor3: new THREE.Color("#F0ABFC") as any,
   },
   // Vertex Shader
   `
@@ -115,7 +115,7 @@ const BlobMaterial = shaderMaterial(
 extend({ BlobMaterial });
 
 function MorphingBlob() {
-  const materialRef = useRef<any>();
+  const materialRef = useRef<any>(null);
   useFrame((state) => {
     if (materialRef.current) {
       materialRef.current.uTime = state.clock.elapsedTime;
@@ -141,7 +141,7 @@ function ParticleNetwork() {
     return arr;
   }, []);
 
-  const pointsRef = useRef<THREE.Points>(null);
+  const pointsRef = useRef<any>(null);
   
   useFrame((state) => {
     if (!pointsRef.current) return;
